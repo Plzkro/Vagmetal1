@@ -28,7 +28,8 @@ export default function RootLayout({
         <Header />
         {children}
         <Footer />
-        <SpeedInsights /> {/* <-- ¡Agrega esta línea aquí! */}
+        <SpeedInsights />
+         <Analytics />
       </body>
     </html>
   )
