@@ -137,7 +137,7 @@ export default function ContactSection() {
 
             <div className="h-[300px] overflow-hidden rounded-lg bg-white shadow-md">
               <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d106551.15421090659!2d-70.6683!3d-33.4489!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9662c5410425af2f%3A0x8475d53c400f0931!2sSantiago%2C%20Chile!5e0!3m2!1sen!2sus!4v1651234567890!5m2!1sen!2sus"
+                src="https://maps.app.goo.gl/tHvWYCtiFJ8h9q9r9"
                 width="100%"
                 height="100%"
                 style={{ border: 0 }}
