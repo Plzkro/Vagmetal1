@@ -14,7 +14,7 @@ const projectsData = [
     description: "Carros de Carga para bodega de almacenamiento",
     client: "CCU",
     images: [
-      { src: "/images/foto26.jpg", alt: "Carro de bodega CCU - Vista 1" },
+      { src: "/images/foto26.jpeg", alt: "Carro de bodega CCU - Vista 1" },
       { src: "/images/foto12.jpeg", alt: "Carro de bodega CCU - Vista 2" },
       { src: "/images/foto13.jpeg", alt: "Carro de bodega CCU - Detalle" },
     ],
@@ -24,9 +24,9 @@ const projectsData = [
     description: "Desarme y armado de Rack mezzanina o altillo",
     client: "Empresa Constructora",
     images: [
-      { src: "/images/foto30.jpg", alt: "Estructura - Vista general" },
-      { src: "/images/foto31.jpg", alt: "Estructura - Montaje" },
-      { src: "/images/foto32.jpg", alt: "Estructura - Detalle " },
+      { src: "/images/foto30.jpeg", alt: "Estructura - Vista general" },
+      { src: "/images/foto31.jpeg", alt: "Estructura - Montaje" },
+      { src: "/images/foto32.jpeg", alt: "Estructura - Detalle " },
     ],
   },
   {
@@ -34,9 +34,9 @@ const projectsData = [
     description: "Fabricacion y Montaje Monorriel para 500Kg",
     client: "Concha y Toro",
     images: [
-      { src: "/images/foto33.jpg", alt: "Estructura Industrial - Fábrica" },
-      { src: "/images/foto34.jpg", alt: "Estructura Industrial - Proceso de soldadura" },
-      { src: "/images/foto35.jpg", alt: "Estructura Industrial - Vista final" },
+      { src: "/images/foto33.jpeg", alt: "Estructura Industrial - Fábrica" },
+      { src: "/images/foto34.jpeg", alt: "Estructura Industrial - Proceso de soldadura" },
+      { src: "/images/foto35.jpeg", alt: "Estructura Industrial - Vista final" },
     ],
   },
 ];
@@ -53,13 +53,13 @@ const galleryImagesData = [
     { src: "/images/foto17.jpeg", alt: "Carro de carga" },
     { src: "/images/foto18.jpeg", alt: "Equipo mueble industrial" },
     { src: "/images/foto22.jpeg", alt: "Escalera móvil 2 metros" },
-    { src: "/images/foto36.jpg", alt: "Carro para gas 45kg" },
-    { src: "/images/foto37.jpg", alt: "Carro para gas 45kg" },
-    { src: "/images/foto38.jpg", alt: "Fabricacion, diseño de productos y estructuras Metalicas" },
-    { src: "/images/foto39.jpg", alt: "Rueda Neumatica para carretilla" },
-    { src: "/images/foto40.jpg", alt: "Soporte de Gato de alta resistencia" },
-    { src: "/images/foto41.jpg", alt: "Carro para botellas de acero" },
-    { src: "/images/foto42.jpg", alt: "Carro de plataforma o carro plano para transporte de carga" },
+    { src: "/images/foto36.jpeg", alt: "Carro para gas 45kg" },
+    { src: "/images/foto37.jpeg", alt: "Carro para gas 45kg" },
+    { src: "/images/foto38.jpeg", alt: "Fabricacion, diseño de productos y estructuras Metalicas" },
+    { src: "/images/foto39.jpeg", alt: "Rueda Neumatica para carretilla" },
+    { src: "/images/foto40.jpeg", alt: "Soporte de Gato de alta resistencia" },
+    { src: "/images/foto41.jpeg", alt: "Carro para botellas de acero" },
+    { src: "/images/foto42.jpeg", alt: "Carro de plataforma o carro plano para transporte de carga" },
 ];
 // --- FIN DE DATOS DE GALERÍA ---
 
@@ -67,33 +67,25 @@ const galleryImagesData = [
 export default function TabNavigation() {
   const [activeTab, setActiveTab] = useState("historia")
 
-  // Estado para controlar qué imagen se muestra en cada proyecto
-  // Lo inicializamos como un objeto vacío, y TypeScript infiere el tipo
   const [currentProjectImageIndex, setCurrentProjectImageIndex] = useState<{ [key: number]: number }>({});
 
-  // Función para cambiar a la siguiente imagen del proyecto
   const goToNextImage = (projectIndex: number, totalImages: number) => {
     setCurrentProjectImageIndex(prev => {
-      // Obtenemos el índice actual, si no existe (es la primera vez), usamos 0
       const currentIndex = prev[projectIndex] !== undefined ? prev[projectIndex] : 0;
-      // Calculamos el siguiente índice, asegurando que se quede dentro del rango
       return {
-        ...prev, // Mantenemos los índices de otros proyectos
-        [projectIndex]: (currentIndex + 1) % totalImages // Nuevo índice para el proyecto actual
+        ...prev,
+        [projectIndex]: (currentIndex + 1) % totalImages
       };
     });
   };
 
-  // Función para cambiar a la imagen anterior del proyecto
   const goToPrevImage = (projectIndex: number, totalImages: number) => {
     setCurrentProjectImageIndex(prev => {
-      // Obtenemos el índice actual, si no existe (es la primera vez), usamos 0
       const currentIndex = prev[projectIndex] !== undefined ? prev[projectIndex] : 0;
-      // Calculamos el índice anterior, asegurando que no sea negativo
       const newIndex = (currentIndex - 1 + totalImages) % totalImages;
       return {
-        ...prev, // Mantenemos los índices de otros proyectos
-        [projectIndex]: newIndex // Nuevo índice para el proyecto actual
+        ...prev,
+        [projectIndex]: newIndex
       };
     });
   };
@@ -159,10 +151,10 @@ export default function TabNavigation() {
               {/* Mapeamos los datos de nuestros proyectos */}
               {projectsData.map((project, projectIndex) => (
                 <div key={project.title} className="overflow-hidden rounded-lg border border-gray-200 bg-white shadow-sm transition-all duration-300 hover:shadow-md">
-                  {/* Agregamos la clase 'group' aquí para que los botones de navegación aparezcan al pasar el ratón */}
-                  <div className="relative h-64 group">
+                  {/* CAMBIO 1: Hacemos el contenedor de imagen cuadrado (aspect-ratio 1:1) */}
+                  <div className="relative aspect-w-1 aspect-h-1 group">
                     <Image
-                      src={project.images[currentProjectImageIndex[projectIndex] || 0].src} // Muestra la imagen actual del proyecto
+                      src={project.images[currentProjectImageIndex[projectIndex] || 0].src}
                       alt={project.images[currentProjectImageIndex[projectIndex] || 0].alt}
                       fill
                       className="object-cover"
@@ -200,14 +192,17 @@ export default function TabNavigation() {
           <TabsContent value="galeria" className="mt-6">
             <div className="grid gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
               {galleryImagesData.map((img, index) => (
-                <div key={index} className="group relative overflow-hidden rounded-lg aspect-w-4 aspect-h-3"> {/* Agregamos clases de aspecto */}
+                <div key={index} className="group relative overflow-hidden rounded-lg aspect-w-4 aspect-h-3">
                   <Image
                     src={img.src}
                     alt={img.alt}
-                    fill // Asegura que la imagen llene el contenedor padre
+                    fill
                     className="object-cover transition-transform duration-500 group-hover:scale-110"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100"></div>
+                  {/* CAMBIO 2: Overlay de fondo más sólido para asegurar contraste del texto blanco */}
+                  {/* Aquí el overlay es inicialmente transparente y se vuelve un negro más sólido (80% de opacidad) al pasar el ratón */}
+                  <div className="absolute inset-0 bg-black/80 opacity-0 transition-opacity duration-300 group-hover:opacity-100"></div>
+                  {/* El texto permanece blanco porque es el que mejor contrasta con el overlay oscuro */}
                   <div className="absolute bottom-0 left-0 p-4 text-white opacity-0 transition-opacity duration-300 group-hover:opacity-100">
                     <h4 className="text-lg font-bold">{img.alt}</h4>
                     <p className="text-sm">Descripción breve del trabajo realizado</p>
