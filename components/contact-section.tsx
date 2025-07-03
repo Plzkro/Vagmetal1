@@ -112,7 +112,7 @@ export default function ContactSection() {
                   <MapPin className="mr-3 h-5 w-5 text-blue-700" />
                   <div>
                     <p className="font-medium text-gray-900">Dirección</p>
-                    <p className="text-gray-700">Av. Ejemplo 1234, Santiago, Chile</p>
+                    <p className="text-gray-700">Los Manzanos 2435, 8840112 La Pintana, Región Metropolitana</p>
                   </div>
                 </div>
 

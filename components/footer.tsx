@@ -1,5 +1,5 @@
 import Link from "next/link"
-import { Facebook, Instagram, Linkedin, Mail, MapPin, Phone } from "lucide-react"
+import { Facebook, Mail, MapPin, Phone } from "lucide-react"
 
 export default function Footer() {
   return (
@@ -8,20 +8,13 @@ export default function Footer() {
         <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
           <div>
             <h3 className="mb-4 text-lg font-bold">VAGMETAL SPA</h3>
-            <p className="mb-4 text-gray-400">Innovación y Tecnología al Servicio de la Industria Chilena</p>
+            <p className="mb-4 text-gray-400">Trabajando para su éxito con la industria metalúrgica</p>
             <div className="flex space-x-4">
               <Link href="#" className="text-gray-400 transition-colors hover:text-white">
                 <Facebook className="h-5 w-5" />
                 <span className="sr-only">Facebook</span>
               </Link>
-              <Link href="#" className="text-gray-400 transition-colors hover:text-white">
-                <Instagram className="h-5 w-5" />
-                <span className="sr-only">Instagram</span>
-              </Link>
-              <Link href="#" className="text-gray-400 transition-colors hover:text-white">
-                <Linkedin className="h-5 w-5" />
-                <span className="sr-only">LinkedIn</span>
-              </Link>
+              
             </div>
           </div>
 
@@ -61,7 +54,7 @@ export default function Footer() {
             <ul className="space-y-2">
               <li className="flex items-center text-gray-400">
                 <MapPin className="mr-2 h-5 w-5 text-blue-500" />
-                Av. Ejemplo 1234, Santiago, Chile
+                Los Manzanos 2435, 8840112 La Pintana, Región Metropolitana
               </li>
               <li className="flex items-center text-gray-400">
                 <Phone className="mr-2 h-5 w-5 text-blue-500" />
