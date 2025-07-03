@@ -136,7 +136,7 @@ export default function TabNavigation() {
               </div>
               <div className="overflow-hidden rounded-lg">
                 <Image
-                  src="/images/foto3.jpeg"
+                  src="/images/historia.jpg"
                   alt="Taller de VAGMETAL"
                   width={800}
                   height={600}
