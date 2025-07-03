@@ -135,17 +135,18 @@ export default function ContactSection() {
               </div>
             </div>
 
-            <div className="h-[300px] overflow-hidden rounded-lg bg-white shadow-md">
-<iframe
-  src="https://maps.google.com/?cid=7134685172359007329&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQ"
-  width="600"
-  height="450"
-  style={{ border: "0" }} // ¡CAMBIO AQUÍ!
-  allowFullScreen="" // Nota: 'allowfullscreen' en HTML es 'allowFullScreen' en JSX
-  loading="lazy"
-  referrerPolicy="no-referrer-when-downgrade" // Nota: 'referrerpolicy' en HTML es 'referrerPolicy' en JSX
-></iframe>
-</div>
+            {/* Contenedor del mapa */}
+            <div className="relative h-[300px] overflow-hidden rounded-lg bg-white shadow-md"> {/* Añadido 'relative' para el iframe absoluto */}
+              <iframe
+                src="https://maps.google.com/?cid=7134685172359007329&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQ"
+                width="100%"   {/* CAMBIO: 100% de ancho */}
+                height="100%"  {/* CAMBIO: 100% de alto */}
+                style={{ border: "0" }}
+                allowFullScreen={true} // Se mantiene 'true' o se quita el prop si es un boolean por defecto
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+              ></iframe>
+            </div>
           </div>
         </div>
       </div>
