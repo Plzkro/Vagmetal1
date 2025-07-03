@@ -1,3 +1,4 @@
+// next.config.js
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   eslint: {
@@ -7,22 +8,15 @@ const nextConfig = {
     ignoreBuildErrors: true,
   },
   images: {
-    // CAMBIO CRÍTICO: Eliminar 'unoptimized: true' para permitir la optimización de imágenes de Next.js
-    // unoptimized: true, // ¡COMENTA O ELIMINA ESTA LÍNEA!
-
-    // AÑADIDO: Configuración de dominios remotos permitidos para next/image
+    // Mantenemos esta configuración para permitir las URLs de DiceBear
     remotePatterns: [
       {
         protocol: 'https',
-        hostname: 'api.dicebear.com', // Dominio para los avatares de testimonios
+        hostname: 'api.dicebear.com', // ¡Este dominio es CRÍTICO para DiceBear!
         port: '',
-        pathname: '/7.x/**', // Patrón de path para los avatares
+        pathname: '/7.x/**',
       },
-      // Agrega otros dominios si utilizas imágenes de CDN o de otros servicios externos
-      // {
-      //   protocol: 'https',
-      //   hostname: 'otro-dominio-de-imagenes.com',
-      // },
+      // Si tienes otras imágenes remotas (CDN, etc.), agrégalas aquí
     ],
   },
 }
