@@ -4,11 +4,10 @@
 
 import { useState } from "react"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
-import { History, Building2, ImageIcon, ChevronLeft, ChevronRight } from "lucide-react" // Importamos los iconos de flecha
+import { History, Building2, ImageIcon, ChevronLeft, ChevronRight } from "lucide-react"
 import Image from "next/image"
 
 // --- DATOS DE PROYECTOS ---
-// Define tus proyectos con sus múltiples imágenes aquí
 const projectsData = [
   {
     title: "Proyecto CCU",
@@ -25,9 +24,9 @@ const projectsData = [
     description: "Desarme y armado de Rack mezzanina o altillo",
     client: "Empresa Constructora",
     images: [
-      { src: "/images/foto30.jpeg", alt: "Estructura  - Vista general" },
-      { src: "/images/foto31.jpeg", alt: "Estructura  - Montaje" },
-      { src: "/images/foto32.jpeg", alt: "Estructura  - Detalle " },
+      { src: "/images/foto30.jpeg", alt: "Estructura - Vista general" },
+      { src: "/images/foto31.jpeg", alt: "Estructura - Montaje" },
+      { src: "/images/foto32.jpeg", alt: "Estructura - Detalle " },
     ],
   },
   {
@@ -44,7 +43,7 @@ const projectsData = [
 // --- FIN DE DATOS DE PROYECTOS ---
 
 
-// --- DATOS DE GALERÍA (manteniendo los que ya tienes) ---
+// --- DATOS DE GALERÍA ---
 const galleryImagesData = [
     { src: "/images/foto12.jpeg", alt: "Carro yegua 400 kg" },
     { src: "/images/foto13.jpeg", alt: "Carro yegua 500 kg" },
@@ -61,31 +60,42 @@ const galleryImagesData = [
     { src: "/images/foto40.jpeg", alt: "Soporte de Gato de alta resistencia" },
     { src: "/images/foto41.jpeg", alt: "Carro para botellas de acero" },
     { src: "/images/foto42.jpeg", alt: "Carro de plataforma o carro plano para transporte de carga" },
-]
-
+];
 // --- FIN DE DATOS DE GALERÍA ---
 
 
 export default function TabNavigation() {
   const [activeTab, setActiveTab] = useState("historia")
 
-  // Nuevo estado para controlar qué imagen se muestra en cada proyecto
-  // Usaremos un objeto donde la clave es el índice del proyecto y el valor es el índice de la imagen
+  // Estado para controlar qué imagen se muestra en cada proyecto
+  // Lo inicializamos como un objeto vacío, y TypeScript infiere el tipo
   const [currentProjectImageIndex, setCurrentProjectImageIndex] = useState<{ [key: number]: number }>({});
 
-  // Función para cambiar la imagen del proyecto
+  // Función para cambiar a la siguiente imagen del proyecto
   const goToNextImage = (projectIndex: number, totalImages: number) => {
-    setCurrentProjectImageIndex(prev => ({
-      ...prev,
-      [projectIndex]: (prev[projectIndex] || 0 + 1) % totalImages
-    }));
+    setCurrentProjectImageIndex(prev => {
+      // Obtenemos el índice actual, si no existe (es la primera vez), usamos 0
+      const currentIndex = prev[projectIndex] !== undefined ? prev[projectIndex] : 0;
+      // Calculamos el siguiente índice, asegurando que se quede dentro del rango
+      return {
+        ...prev, // Mantenemos los índices de otros proyectos
+        [projectIndex]: (currentIndex + 1) % totalImages // Nuevo índice para el proyecto actual
+      };
+    });
   };
 
+  // Función para cambiar a la imagen anterior del proyecto
   const goToPrevImage = (projectIndex: number, totalImages: number) => {
-    setCurrentProjectImageIndex(prev => ({
-      ...prev,
-      [projectIndex]: (prev[projectIndex] || 0 - 1 + totalImages) % totalImages
-    }));
+    setCurrentProjectImageIndex(prev => {
+      // Obtenemos el índice actual, si no existe (es la primera vez), usamos 0
+      const currentIndex = prev[projectIndex] !== undefined ? prev[projectIndex] : 0;
+      // Calculamos el índice anterior, asegurando que no sea negativo
+      const newIndex = (currentIndex - 1 + totalImages) % totalImages;
+      return {
+        ...prev, // Mantenemos los índices de otros proyectos
+        [projectIndex]: newIndex // Nuevo índice para el proyecto actual
+      };
+    });
   };
 
   return (
@@ -149,7 +159,8 @@ export default function TabNavigation() {
               {/* Mapeamos los datos de nuestros proyectos */}
               {projectsData.map((project, projectIndex) => (
                 <div key={project.title} className="overflow-hidden rounded-lg border border-gray-200 bg-white shadow-sm transition-all duration-300 hover:shadow-md">
-                  <div className="relative h-64">
+                  {/* Agregamos la clase 'group' aquí para que los botones de navegación aparezcan al pasar el ratón */}
+                  <div className="relative h-64 group">
                     <Image
                       src={project.images[currentProjectImageIndex[projectIndex] || 0].src} // Muestra la imagen actual del proyecto
                       alt={project.images[currentProjectImageIndex[projectIndex] || 0].alt}
@@ -161,14 +172,14 @@ export default function TabNavigation() {
                       <>
                         <button
                           onClick={() => goToPrevImage(projectIndex, project.images.length)}
-                          className="absolute left-2 top-1/2 -translate-y-1/2 rounded-full bg-black/50 p-1 text-white opacity-0 transition-opacity group-hover:opacity-100"
+                          className="absolute left-2 top-1/2 -translate-y-1/2 rounded-full bg-black/50 p-1 text-white opacity-0 transition-opacity duration-300 group-hover:opacity-100"
                           aria-label="Imagen anterior"
                         >
                           <ChevronLeft className="h-5 w-5" />
                         </button>
                         <button
                           onClick={() => goToNextImage(projectIndex, project.images.length)}
-                          className="absolute right-2 top-1/2 -translate-y-1/2 rounded-full bg-black/50 p-1 text-white opacity-0 transition-opacity group-hover:opacity-100"
+                          className="absolute right-2 top-1/2 -translate-y-1/2 rounded-full bg-black/50 p-1 text-white opacity-0 transition-opacity duration-300 group-hover:opacity-100"
                           aria-label="Siguiente imagen"
                         >
                           <ChevronRight className="h-5 w-5" />
@@ -189,13 +200,12 @@ export default function TabNavigation() {
           <TabsContent value="galeria" className="mt-6">
             <div className="grid gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
               {galleryImagesData.map((img, index) => (
-                <div key={index} className="group relative overflow-hidden rounded-lg">
+                <div key={index} className="group relative overflow-hidden rounded-lg aspect-w-4 aspect-h-3"> {/* Agregamos clases de aspecto */}
                   <Image
                     src={img.src}
                     alt={img.alt}
-                    width={400}
-                    height={300}
-                    className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110"
+                    fill // Asegura que la imagen llene el contenedor padre
+                    className="object-cover transition-transform duration-500 group-hover:scale-110"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100"></div>
                   <div className="absolute bottom-0 left-0 p-4 text-white opacity-0 transition-opacity duration-300 group-hover:opacity-100">
