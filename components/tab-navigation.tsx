@@ -203,7 +203,7 @@ export default function TabNavigation() {
                   <div className="absolute inset-0 bg-black/80 opacity-0 transition-opacity duration-300 group-hover:opacity-100"></div>
                   <div className="absolute bottom-0 left-0 p-4 text-white opacity-0 transition-opacity duration-300 group-hover:opacity-100">
                     <h4 className="text-lg font-bold">{img.alt}</h4>
-                    <p className="text-sm">Descripción breve del trabajo realizado</p>
+                    
                   </div>
                 </div>
               ))}
