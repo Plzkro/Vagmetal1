@@ -2,8 +2,7 @@
 
 "use client"
 
-// CAMBIO AQUÍ: Cambiar la importación de 'type React' a una importación estándar de 'React'
-import React, { useState } from "react" // <-- MODIFICADO: Agregado { useState } aquí
+import React, { useState } from "react" // Se mantiene la importación correcta de React
 
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
@@ -32,8 +31,6 @@ export default function ContactSection() {
 
     // Reset form
     setFormData({ name: "", email: "", message: "" })
-    // In a real application, you might want to show a success message or
-    // handle errors after the actual backend submission.
     setIsSubmitting(false)
 
     // Here you would normally send the data to your backend
@@ -142,7 +139,7 @@ export default function ContactSection() {
             {/* Contenedor del mapa */}
             <div className="relative h-[300px] overflow-hidden rounded-lg bg-white shadow-md">
               <iframe
-                src="https://maps.google.com/?cid=7134685172359007329&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQ"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3322.418365755821!2d-70.64407732365832!3d-33.620392773322614!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9662d83444c0d5bb%3A0x63037e5cf2b48c61!2sLos%20Manzanos%202435%2C%208840112%20La%20Pintana%2C%20Regi%C3%B3n%20Metropolitana%2C%20Chile!5e0!3m2!1sen!2sus!4v1751514410501!5m2!1sen!2sus" // ¡CAMBIO CLAVE AQUÍ! Nueva URL de Google Embed a Map
                 width="100%"
                 height="100%"
                 style={{ border: "0" }}
