@@ -1,3 +1,5 @@
+// components/header.tsx
+
 "use client"
 
 import { useState } from "react"
@@ -15,7 +17,8 @@ export default function Header() {
 
   return (
     <header className="fixed left-0 right-0 top-0 z-50 bg-white/90 shadow-sm backdrop-blur-sm">
-      <div className="container mx-auto flex h-16 items-center justify-between px-4">
+      {/* CAMBIO CLAVE: Eliminar h-16 y añadir py-4 para padding vertical */}
+      <div className="container mx-auto flex items-center justify-between px-4 py-4"> {/* Eliminado h-16, Añadido py-4 */}
         <Link href="/" className="flex items-center">
           <Image
             src="/images/LogoVagmetal.png"
@@ -37,8 +40,7 @@ export default function Header() {
           <Link href="#contacto" className="text-sm font-medium text-gray-900 transition-colors hover:text-blue-700">
             Contacto
           </Link>
-          {/* ¡Aquí corregimos el botón Contáctanos! */}
-          <Link href="#contacto"> {/* Envolvemos el Button con Link */}
+          <Link href="#contacto">
             <Button size="sm" className="bg-blue-700 hover:bg-blue-800">
               Contáctanos
             </Button>
@@ -80,8 +82,7 @@ export default function Header() {
             >
               Contacto
             </Link>
-            {/* También corregimos el botón en el menú móvil */}
-            <Link href="#contacto"> {/* Envolvemos el Button con Link */}
+            <Link href="#contacto">
               <Button className="w-full bg-blue-700 hover:bg-blue-800" onClick={() => setIsMenuOpen(false)}>
                 Contáctanos
               </Button>

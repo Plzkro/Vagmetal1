@@ -96,125 +96,123 @@ export default function TabNavigation() {
         <h2 className="mb-10 text-center text-3xl font-bold text-gray-900 sm:text-4xl">Nuestros Servicios</h2>
 
         <Tabs defaultValue="historia" className="w-full" onValueChange={setActiveTab}>
-          {/* Nuevo contenedor flex/grid para controlar el espaciado entre TabsList y TabsContent */}
-          {/* Se elimina el mb-12 de TabsList y el mt-6 de TabsContent */}
-          {/* En su lugar, el gap-y-8 se encargará del espacio vertical */}
-          <div className="flex flex-col gap-y-8 lg:gap-y-12"> {/* CAMBIO CLAVE: Contenedor flex con gap-y */}
-            <TabsList className="mx-auto grid w-full max-w-3xl grid-cols-1 gap-4 sm:grid-cols-3">
-              <TabsTrigger
-                value="historia"
-                className="flex items-center gap-2 data-[state=active]:bg-blue-700 data-[state=active]:text-white"
-              >
-                <History className="h-5 w-5" />
-                <span>Historia</span>
-              </TabsTrigger>
-              <TabsTrigger
-                value="proyectos"
-                className="flex items-center gap-2 data-[state=active]:bg-blue-700 data-[state=active]:text-white"
-              >
-                <Building2 className="h-5 w-5" />
-                <span>Proyectos</span>
-              </TabsTrigger>
-              <TabsTrigger
-                value="galeria"
-                className="flex items-center gap-2 data-[state=active]:bg-blue-700 data-[state=active]:text-white"
-              >
-                <ImageIcon className="h-5 w-5" />
-                <span>Galería</span>
-              </TabsTrigger>
-            </TabsList>
+          {/* Mantenemos el contenedor Tabs, y controlamos el espaciado con un mb en TabsList */}
+          {/* Añadimos un mb-8 (32px) para móviles, y lo reiniciamos a 0 en sm para que el gap-y-8 del padre lo tome */}
+          <TabsList className="mx-auto mb-8 sm:mb-0 grid w-full max-w-3xl grid-cols-1 gap-4 sm:grid-cols-3"> {/* CAMBIO CLAVE AQUÍ: mb-8 sm:mb-0 */}
+            <TabsTrigger
+              value="historia"
+              className="flex items-center gap-2 data-[state=active]:bg-blue-700 data-[state=active]:text-white"
+            >
+              <History className="h-5 w-5" />
+              <span>Historia</span>
+            </TabsTrigger>
+            <TabsTrigger
+              value="proyectos"
+              className="flex items-center gap-2 data-[state=active]:bg-blue-700 data-[state=active]:text-white"
+            >
+              <Building2 className="h-5 w-5" />
+              <span>Proyectos</span>
+            </TabsTrigger>
+            <TabsTrigger
+              value="galeria"
+              className="flex items-center gap-2 data-[state=active]:bg-blue-700 data-[state=active]:text-white"
+            >
+              <ImageIcon className="h-5 w-5" />
+              <span>Galería</span>
+            </TabsTrigger>
+          </TabsList>
 
-            {/* Los TabsContent ahora no necesitan un margen superior propio, el gap del padre los espacia */}
-            <TabsContent value="historia" className=""> {/* CAMBIO: Eliminar mt-6 */}
-              <div className="grid gap-8 md:grid-cols-2">
-                <div className="flex flex-col justify-center">
-                  <h3 className="mb-4 text-2xl font-bold text-gray-900">Nuestra Historia</h3>
-                  <p className="text-gray-700">
-                    VAGMETAL SPA es una empresa con más de 10 años de experiencia, que opera en el sector de la metalurgia
-                    y la venta de herramientas. Nos especializamos en la comercialización de herramientas, la fabricación
-                    de carros, y el desarrollo de estructuras metálicas.
-                  </p>
-                  <p className="mt-4 text-gray-700">
-                    Desde nuestros inicios, nos hemos comprometido con la calidad y la innovación, ofreciendo soluciones
-                    personalizadas que satisfacen las necesidades específicas de cada cliente.
-                  </p>
-                </div>
-                <div className="overflow-hidden rounded-lg">
-                  <Image
-                    src="/images/foto3.jpeg"
-                    alt="Taller de VAGMETAL"
-                    width={800}
-                    height={600}
-                    className="h-full w-full object-cover transition-transform duration-500 hover:scale-105"
-                  />
-                </div>
+          {/* El TabsContent ahora tiene un padding-top para asegurar espacio interno */}
+          {/* Este padding-top será efectivo en todas las pantallas */}
+          <TabsContent value="historia" className="pt-8 sm:pt-0"> {/* CAMBIO CLAVE AQUÍ: pt-8 sm:pt-0 */}
+            <div className="grid gap-8 md:grid-cols-2">
+              <div className="flex flex-col justify-center">
+                <h3 className="mb-4 text-2xl font-bold text-gray-900">Nuestra Historia</h3>
+                <p className="text-gray-700">
+                  VAGMETAL SPA es una empresa con más de 10 años de experiencia, que opera en el sector de la metalurgia
+                  y la venta de herramientas. Nos especializamos en la comercialización de herramientas, la fabricación
+                  de carros, y el desarrollo de estructuras metálicas.
+                </p>
+                <p className="mt-4 text-gray-700">
+                  Desde nuestros inicios, nos hemos comprometido con la calidad y la innovación, ofreciendo soluciones
+                  personalizadas que satisfacen las necesidades específicas de cada cliente.
+                </p>
               </div>
-            </TabsContent>
-
-            <TabsContent value="proyectos" className=""> {/* CAMBIO: Eliminar mt-6 */}
-              <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-                {/* Mapeamos los datos de nuestros proyectos */}
-                {projectsData.map((project, projectIndex) => (
-                  <div key={project.title} className="overflow-hidden rounded-lg border border-gray-200 bg-white shadow-sm transition-all duration-300 hover:shadow-md">
-                    {/* Contenedor de imagen cuadrado */}
-                    <div className="relative aspect-w-1 aspect-h-1 group">
-                      <Image
-                        src={project.images[currentProjectImageIndex[projectIndex] || 0].src}
-                        alt={project.images[currentProjectImageIndex[projectIndex] || 0].alt}
-                        fill
-                        className="object-cover"
-                      />
-                      {/* Controles de navegación de imágenes: sin círculo negro, flechas negras en los bordes */}
-                      {project.images.length > 1 && (
-                        <>
-                          <button
-                            onClick={() => goToPrevImage(projectIndex, project.images.length)}
-                            className="absolute left-0 top-1/2 -translate-y-1/2 px-2 text-black opacity-0 transition-opacity duration-300 group-hover:opacity-100 drop-shadow-md"
-                            aria-label="Imagen anterior"
-                          >
-                            <ChevronLeft className="h-7 w-7" />
-                          </button>
-                          <button
-                            onClick={() => goToNextImage(projectIndex, project.images.length)}
-                            className="absolute right-0 top-1/2 -translate-y-1/2 px-2 text-black opacity-0 transition-opacity duration-300 group-hover:opacity-100 drop-shadow-md"
-                            aria-label="Siguiente imagen"
-                          >
-                            <ChevronRight className="h-7 w-7" />
-                          </button>
-                        </>
-                      )}
-                    </div>
-                    <div className="p-6">
-                      <h3 className="mb-2 text-xl font-bold text-gray-900">{project.title}</h3>
-                      <p className="mb-4 text-gray-700">{project.description}</p>
-                      <p className="text-sm font-medium text-blue-700">Cliente: {project.client}</p>
-                    </div>
-                  </div>
-                ))}
+              <div className="overflow-hidden rounded-lg">
+                <Image
+                  src="/images/foto3.jpeg"
+                  alt="Taller de VAGMETAL"
+                  width={800}
+                  height={600}
+                  className="h-full w-full object-cover transition-transform duration-500 hover:scale-105"
+                />
               </div>
-            </TabsContent>
+            </div>
+          </TabsContent>
 
-            <TabsContent value="galeria" className=""> {/* CAMBIO: Eliminar mt-6 */}
-              <div className="grid gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
-                {galleryImagesData.map((img, index) => (
-                  <div key={index} className="group relative overflow-hidden rounded-lg aspect-w-3 aspect-h-4">
+          <TabsContent value="proyectos" className="pt-8 sm:pt-0"> {/* CAMBIO CLAVE AQUÍ: pt-8 sm:pt-0 */}
+            <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+              {/* Mapeamos los datos de nuestros proyectos */}
+              {projectsData.map((project, projectIndex) => (
+                <div key={project.title} className="overflow-hidden rounded-lg border border-gray-200 bg-white shadow-sm transition-all duration-300 hover:shadow-md">
+                  {/* Contenedor de imagen cuadrado */}
+                  <div className="relative aspect-w-1 aspect-h-1 group">
                     <Image
-                      src={img.src}
-                      alt={img.alt}
+                      src={project.images[currentProjectImageIndex[projectIndex] || 0].src}
+                      alt={project.images[currentProjectImageIndex[projectIndex] || 0].alt}
                       fill
-                      className="object-cover transition-transform duration-500 group-hover:scale-110"
+                      className="object-cover"
                     />
-                    {/* Overlay de fondo sólido para asegurar contraste del texto blanco */}
-                    <div className="absolute inset-0 bg-black/80 opacity-0 transition-opacity duration-300 group-hover:opacity-100"></div>
-                    <div className="absolute bottom-0 left-0 p-4 text-white opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-                      <h4 className="text-lg font-bold">{img.alt}</h4>
-                      <p className="text-sm">Descripción breve del trabajo realizado</p>
-                    </div>
+                    {/* Controles de navegación de imágenes: sin círculo negro, flechas negras en los bordes */}
+                    {project.images.length > 1 && (
+                      <>
+                        <button
+                          onClick={() => goToPrevImage(projectIndex, project.images.length)}
+                          className="absolute left-0 top-1/2 -translate-y-1/2 px-2 text-black opacity-0 transition-opacity duration-300 group-hover:opacity-100 drop-shadow-md"
+                          aria-label="Imagen anterior"
+                        >
+                          <ChevronLeft className="h-7 w-7" />
+                        </button>
+                        <button
+                          onClick={() => goToNextImage(projectIndex, project.images.length)}
+                          className="absolute right-0 top-1/2 -translate-y-1/2 px-2 text-black opacity-0 transition-opacity duration-300 group-hover:opacity-100 drop-shadow-md"
+                          aria-label="Siguiente imagen"
+                        >
+                          <ChevronRight className="h-7 w-7" />
+                        </button>
+                      </>
+                    )}
                   </div>
-                ))}
-              </div>
-            </TabsContent>
-          </div> {/* Fin del nuevo contenedor flex/grid */}
+                  <div className="p-6">
+                    <h3 className="mb-2 text-xl font-bold text-gray-900">{project.title}</h3>
+                    <p className="mb-4 text-gray-700">{project.description}</p>
+                    <p className="text-sm font-medium text-blue-700">Cliente: {project.client}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </TabsContent>
+
+          <TabsContent value="galeria" className="pt-8 sm:pt-0"> {/* CAMBIO CLAVE AQUÍ: pt-8 sm:pt-0 */}
+            <div className="grid gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+              {galleryImagesData.map((img, index) => (
+                <div key={index} className="group relative overflow-hidden rounded-lg aspect-w-3 aspect-h-4">
+                  <Image
+                    src={img.src}
+                    alt={img.alt}
+                    fill
+                    className="object-cover transition-transform duration-500 group-hover:scale-110"
+                  />
+                  {/* Overlay de fondo sólido para asegurar contraste del texto blanco */}
+                  <div className="absolute inset-0 bg-black/80 opacity-0 transition-opacity duration-300 group-hover:opacity-100"></div>
+                  <div className="absolute bottom-0 left-0 p-4 text-white opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+                    <h4 className="text-lg font-bold">{img.alt}</h4>
+                    <p className="text-sm">Descripción breve del trabajo realizado</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </TabsContent>
         </Tabs>
       </div>
     </section>
