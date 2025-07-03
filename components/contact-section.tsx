@@ -140,10 +140,10 @@ export default function ContactSection() {
   src="https://maps.google.com/?cid=7134685172359007329&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQ"
   width="600"
   height="450"
-  style="border:0;"
-  allowfullscreen=""
+  style={{ border: "0" }} // ¡CAMBIO AQUÍ!
+  allowFullScreen="" // Nota: 'allowfullscreen' en HTML es 'allowFullScreen' en JSX
   loading="lazy"
-  referrerpolicy="no-referrer-when-downgrade"
+  referrerPolicy="no-referrer-when-downgrade" // Nota: 'referrerpolicy' en HTML es 'referrerPolicy' en JSX
 ></iframe>
 </div>
           </div>
