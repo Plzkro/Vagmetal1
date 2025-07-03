@@ -1,6 +1,7 @@
 import { ArrowRight } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import Image from "next/image"
+import Link from "next/link" // <-- ¡IMPORTAMOS Link de Next.js!
 
 export default function Hero() {
   return (
@@ -24,10 +25,13 @@ export default function Hero() {
           Especialistas en metalurgia, fabricación de estructuras metálicas y comercialización de herramientas de alta
           calidad
         </p>
-        <Button size="lg" className="group bg-blue-700 hover:bg-blue-800">
-          Contáctanos
-          <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
-        </Button>
+        {/* ¡Aquí corregimos el botón Contáctanos! */}
+        <Link href="#contacto"> {/* Envolvemos el Button con Link */}
+          <Button size="lg" className="group bg-blue-700 hover:bg-blue-800">
+            Contáctanos
+            <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+          </Button>
+        </Link>
       </div>
     </section>
   )

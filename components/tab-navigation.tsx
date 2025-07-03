@@ -58,6 +58,10 @@ const galleryImagesData = [
     { src: "/images/foto37.jpeg", alt: "Carro para gas 45kg" },
     { src: "/images/foto38.jpeg", alt: "Fabricacion, diseño de productos y estructuras Metalicas" },
     { src: "/images/foto39.jpeg", alt: "Rueda Neumatica para carretilla" },
+    { src: "/images/foto40.jpeg", alt: "Soporte de Gato de alta resistencia" },
+    { src: "/images/foto41.jpeg", alt: "Carro para botellas de acero" },
+    { src: "/images/foto42.jpeg", alt: "Carro de plataforma o carro plano para transporte de carga" },
+
 
 // --- FIN DE DATOS DE GALERÍA ---
 

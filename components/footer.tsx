@@ -1,5 +1,5 @@
 import Link from "next/link"
-import { Facebook, Mail, MapPin, Phone } from "lucide-react"
+import { Facebook, Instagram, Mail, MapPin, Phone } from "lucide-react" // <-- ¡Importamos Instagram aquí!
 
 export default function Footer() {
   return (
@@ -10,11 +10,18 @@ export default function Footer() {
             <h3 className="mb-4 text-lg font-bold">VAGMETAL SPA</h3>
             <p className="mb-4 text-gray-400">Trabajando para su éxito con la industria metalúrgica</p>
             <div className="flex space-x-4">
-              <Link href="https://www.facebook.com/profile.php?id=100090390775979" className="text-gray-400 transition-colors hover:text-white">
+              {/* Botón de Facebook */}
+              <Link href="https://www.facebook.com/profile.php?id=100090390775979" className="text-gray-400 transition-colors hover:text-white" aria-label="Facebook">
                 <Facebook className="h-5 w-5" />
                 <span className="sr-only">Facebook</span>
               </Link>
-              
+
+              {/* ¡Aquí agregamos el botón de Instagram! */}
+              <Link href="https://www.instagram.com/vagmetal/" className="text-gray-400 transition-colors hover:text-white" aria-label="Instagram">
+                <Instagram className="h-5 w-5" />
+                <span className="sr-only">Instagram</span>
+              </Link>
+
             </div>
           </div>
 
