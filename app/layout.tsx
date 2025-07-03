@@ -1,3 +1,5 @@
+// app/layout.tsx
+
 import type React from "react"
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Analytics } from "@vercel/analytics/next";
@@ -6,7 +8,8 @@ import { Inter } from "next/font/google"
 import "./globals.css"
 import Header from "@/components/header"
 import Footer from "@/components/footer"
-import { ThemeProvider } from "@/components/theme-provider" // <-- Importa tu ThemeProvider aquí
+import { ThemeProvider } from "@/components/theme-provider"
+import WhatsAppButton from "@/components/WhatsAppButton"; // <-- Importa el nuevo componente
 
 const inter = Inter({ subsets: ["latin"] })
 
@@ -24,12 +27,18 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="es" suppressHydrationWarning> {/* Añade suppressHydrationWarning aquí */}
+    <html lang="es" suppressHydrationWarning>
       <body className={inter.className}>
-        <ThemeProvider> {/* Envuelve toda la aplicación con ThemeProvider */}
+        <ThemeProvider>
           <Header />
           {children}
           <Footer />
+          {/* ¡Añade tu botón de WhatsApp aquí! */}
+          {/* CAMBIA EL NÚMERO DE TELÉFONO POR EL DE VAGMETAL SPA (+código_país+número) */}
+          <WhatsAppButton
+            phoneNumber="+56934252069" // <--- ¡IMPORTANTE! REEMPLAZA ESTE NÚMERO
+            message="Hola VAGMETAL SPA, me gustaría saber más sobre sus servicios de metalurgia."
+          />
         </ThemeProvider>
         <SpeedInsights />
         <Analytics />

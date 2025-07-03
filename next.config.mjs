@@ -1,4 +1,3 @@
-// next.config.js
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   eslint: {
@@ -8,17 +7,21 @@ const nextConfig = {
     ignoreBuildErrors: true,
   },
   images: {
-    // Mantenemos esta configuración para permitir las URLs de DiceBear
+    // ELIMINADO: 'unoptimized: true' para permitir la optimización de imágenes de Next.js
+    // AÑADIDO: Configuración de dominios remotos permitidos para next/image
     remotePatterns: [
       {
         protocol: 'https',
         hostname: 'api.dicebear.com',
         port: '',
-        // CAMBIO CRÍTICO AQUÍ: Esto permite cualquier cosa después de /7.x/ y antes de un query string
-        // Esto cubre tanto /7.x/adventurer/svg como /7.x/fun-emoji/svg
-        pathname: '/7.x/**/*.svg', 
+        // CAMBIO CLAVE AQUÍ: Más flexible para URLs de DiceBear con o sin query params
+        pathname: '/7.x/**/*.svg',
       },
-      // Si tienes otras imágenes remotas (CDN, etc.), agrégalas aquí
+      // Agrega otros dominios si utilizas imágenes de CDN o de otros servicios externos
+      // {
+      //   protocol: 'https',
+      //   hostname: 'otro-dominio-de-imagenes.com',
+      // },
     ],
   },
 }
