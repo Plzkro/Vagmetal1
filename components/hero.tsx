@@ -1,17 +1,17 @@
 import { ArrowRight } from "lucide-react"
 import { Button } from "@/components/ui/button"
-import Image from "next/image" // Importa el componente Image de Next.js
+import Image from "next/image"
 
 export default function Hero() {
   return (
     <section className="relative h-[80vh] w-full overflow-hidden">
-      {/* Usar next/image para la imagen de fondo */}
+      {/* ¡Aquí es donde actualizamos la imagen de portada! */}
       <Image
-        src="/placeholder.svg" // Reemplaza con la ruta de tu imagen real
-        alt="VAGMETAL Background"
-        fill // Esto hace que la imagen ocupe todo el espacio del contenedor padre relativo
-        className="object-cover" // Para asegurar que cubra el área sin distorsión
-        priority // Esto indica a Next.js que la cargue con alta prioridad (es una imagen clave del LCP)
+        src="/images/foto11.jpeg" // <-- ¡Hemos cambiado esto!
+        alt="Innovación y Tecnología en Metalurgia" // <-- Sugerencia: Mejora el texto alternativo (alt)
+        fill // Esto es crucial para que la imagen cubra todo el fondo
+        className="object-cover" // Asegura que la imagen se ajuste sin distorsionarse
+        priority // Para que esta imagen principal se cargue rápido
       />
 
       <div className="absolute inset-0 bg-gradient-to-r from-black/70 to-black/40"></div>
