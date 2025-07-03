@@ -12,9 +12,11 @@ const nextConfig = {
     remotePatterns: [
       {
         protocol: 'https',
-        hostname: 'api.dicebear.com', // ¡Este dominio es CRÍTICO para DiceBear!
+        hostname: 'api.dicebear.com',
         port: '',
-        pathname: '/7.x/**',
+        // CAMBIO CRÍTICO AQUÍ: Esto permite cualquier cosa después de /7.x/ y antes de un query string
+        // Esto cubre tanto /7.x/adventurer/svg como /7.x/fun-emoji/svg
+        pathname: '/7.x/**/*.svg', 
       },
       // Si tienes otras imágenes remotas (CDN, etc.), agrégalas aquí
     ],

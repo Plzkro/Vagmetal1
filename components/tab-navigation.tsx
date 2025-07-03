@@ -96,9 +96,9 @@ export default function TabNavigation() {
         <h2 className="mb-10 text-center text-3xl font-bold text-gray-900 sm:text-4xl">Nuestros Servicios</h2>
 
         <Tabs defaultValue="historia" className="w-full" onValueChange={setActiveTab}>
-          {/* Mantenemos el contenedor Tabs, y controlamos el espaciado con un mb en TabsList */}
-          {/* Añadimos un mb-8 (32px) para móviles, y lo reiniciamos a 0 en sm para que el gap-y-8 del padre lo tome */}
-          <TabsList className="mx-auto mb-8 sm:mb-0 grid w-full max-w-3xl grid-cols-1 gap-4 sm:grid-cols-3"> {/* CAMBIO CLAVE AQUÍ: mb-8 sm:mb-0 */}
+          {/* CAMBIO CLAVE: Aumentar el margen inferior de TabsList para móviles */}
+          {/* Se cambió mb-8 a mb-16 para dar más espacio en pantallas pequeñas, y se reinicia en sm */}
+          <TabsList className="mx-auto mb-16 sm:mb-0 grid w-full max-w-3xl grid-cols-1 gap-4 sm:grid-cols-3">
             <TabsTrigger
               value="historia"
               className="flex items-center gap-2 data-[state=active]:bg-blue-700 data-[state=active]:text-white"
@@ -122,9 +122,9 @@ export default function TabNavigation() {
             </TabsTrigger>
           </TabsList>
 
-          {/* El TabsContent ahora tiene un padding-top para asegurar espacio interno */}
-          {/* Este padding-top será efectivo en todas las pantallas */}
-          <TabsContent value="historia" className="pt-8 sm:pt-0"> {/* CAMBIO CLAVE AQUÍ: pt-8 sm:pt-0 */}
+          {/* CAMBIO CLAVE: Aumentar el padding superior de TabsContent para móviles */}
+          {/* Se cambió pt-8 a pt-16 para asegurar un buen espacio interno desde arriba */}
+          <TabsContent value="historia" className="pt-16 sm:pt-0">
             <div className="grid gap-8 md:grid-cols-2">
               <div className="flex flex-col justify-center">
                 <h3 className="mb-4 text-2xl font-bold text-gray-900">Nuestra Historia</h3>
@@ -150,11 +150,11 @@ export default function TabNavigation() {
             </div>
           </TabsContent>
 
-          <TabsContent value="proyectos" className="pt-8 sm:pt-0"> {/* CAMBIO CLAVE AQUÍ: pt-8 sm:pt-0 */}
+          <TabsContent value="proyectos" className="pt-16 sm:pt-0">
             <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
               {/* Mapeamos los datos de nuestros proyectos */}
               {projectsData.map((project, projectIndex) => (
-                <div key={project.title} className="overflow-hidden rounded-lg border border-gray-200 bg-white shadow-sm transition-all duration-300 hover:shadow-md">
+                <div key={project.title} className="overflow-hidden rounded-lg border border-gray-200 bg-white shadow-sm transition-all duration-300 hover:-translate-y-1">
                   {/* Contenedor de imagen cuadrado */}
                   <div className="relative aspect-w-1 aspect-h-1 group">
                     <Image
@@ -193,7 +193,7 @@ export default function TabNavigation() {
             </div>
           </TabsContent>
 
-          <TabsContent value="galeria" className="pt-8 sm:pt-0"> {/* CAMBIO CLAVE AQUÍ: pt-8 sm:pt-0 */}
+          <TabsContent value="galeria" className="pt-16 sm:pt-0">
             <div className="grid gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
               {galleryImagesData.map((img, index) => (
                 <div key={index} className="group relative overflow-hidden rounded-lg aspect-w-3 aspect-h-4">
