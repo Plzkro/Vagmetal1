@@ -2,6 +2,7 @@
 
 import { useState } from "react"
 import Link from "next/link"
+import Image from "next/image" // <-- ¡IMPORTAMOS Image de Next.js!
 import { Menu, X } from "lucide-react"
 import { Button } from "@/components/ui/button"
 
@@ -16,8 +17,14 @@ export default function Header() {
     <header className="fixed left-0 right-0 top-0 z-50 bg-white/90 shadow-sm backdrop-blur-sm">
       <div className="container mx-auto flex h-16 items-center justify-between px-4">
         <Link href="/" className="flex items-center">
-          <span className="text-xl font-bold text-blue-700">VAGMETAL</span>
-          <span className="ml-1 text-xl font-light">SPA</span>
+          {/* ¡AQUÍ ES DONDE INSERTAMOS EL LOGO! */}
+          <Image
+            src="/images/LogoVagmetal.png" // Ruta a tu logo en la carpeta public/images
+            alt="Logo VAGMETAL SPA" // Texto alternativo para accesibilidad y SEO
+            width={160} // Ajusta el ancho según cómo quieras que se vea (ej. 150-200)
+            height={40} // Ajusta la altura, Next.js optimizará
+            priority // Para que el logo cargue rápidamente al principio
+          />
         </Link>
 
         {/* Desktop Navigation */}
