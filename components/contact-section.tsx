@@ -1,8 +1,10 @@
+// components/contact-section.tsx
+
 "use client"
 
-import type React from "react"
+// CAMBIO AQUÍ: Cambiar la importación de 'type React' a una importación estándar de 'React'
+import React, { useState } from "react" // <-- MODIFICADO: Agregado { useState } aquí
 
-import { useState } from "react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
@@ -30,6 +32,8 @@ export default function ContactSection() {
 
     // Reset form
     setFormData({ name: "", email: "", message: "" })
+    // In a real application, you might want to show a success message or
+    // handle errors after the actual backend submission.
     setIsSubmitting(false)
 
     // Here you would normally send the data to your backend
@@ -136,13 +140,13 @@ export default function ContactSection() {
             </div>
 
             {/* Contenedor del mapa */}
-            <div className="relative h-[300px] overflow-hidden rounded-lg bg-white shadow-md"> {/* Añadido 'relative' para el iframe absoluto */}
+            <div className="relative h-[300px] overflow-hidden rounded-lg bg-white shadow-md">
               <iframe
                 src="https://maps.google.com/?cid=7134685172359007329&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQ"
-                width="100%"   {/* CAMBIO: 100% de ancho */}
-                height="100%"  {/* CAMBIO: 100% de alto */}
+                width="100%"
+                height="100%"
                 style={{ border: "0" }}
-                allowFullScreen={true} // Se mantiene 'true' o se quita el prop si es un boolean por defecto
+                allowFullScreen={true}
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
               ></iframe>
