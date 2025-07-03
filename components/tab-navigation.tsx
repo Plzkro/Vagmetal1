@@ -12,32 +12,32 @@ import Image from "next/image"
 const projectsData = [
   {
     title: "Proyecto CCU",
-    description: "Carros para bodega de almacenamiento",
+    description: "Carros de Carga para bodega de almacenamiento",
     client: "CCU",
     images: [
-      { src: "/images/foto8.jpeg", alt: "Carro de bodega CCU - Vista 1" },
-      { src: "/images/foto9.jpeg", alt: "Carro de bodega CCU - Vista 2" },
-      { src: "/images/foto10.jpeg", alt: "Carro de bodega CCU - Detalle" },
+      { src: "/images/foto26.jpeg", alt: "Carro de bodega CCU - Vista 1" },
+      { src: "/images/foto12.jpeg", alt: "Carro de bodega CCU - Vista 2" },
+      { src: "/images/foto13.jpeg", alt: "Carro de bodega CCU - Detalle" },
     ],
   },
   {
-    title: "Proyecto Metalcom",
-    description: "Estructuras metálicas para construcción",
+    title: "Proyecto desarme estructuras metálicas",
+    description: "Desarme y armado de Rack mezzanina o altillo",
     client: "Empresa Constructora",
     images: [
-      { src: "/images/foto23.jpeg", alt: "Estructura Metalcom - Vista general" },
-      { src: "/images/foto24.jpeg", alt: "Estructura Metalcom - Montaje" },
-      { src: "/images/foto25.jpeg", alt: "Estructura Metalcom - Detalle unión" },
+      { src: "/images/foto30.jpeg", alt: "Estructura  - Vista general" },
+      { src: "/images/foto31.jpeg", alt: "Estructura  - Montaje" },
+      { src: "/images/foto32.jpeg", alt: "Estructura  - Detalle " },
     ],
   },
   {
-    title: "Estructuras Industriales",
-    description: "Fabricación de estructuras metálicas personalizadas",
-    client: "Sector Industrial",
+    title: "Proyecto Monorriel",
+    description: "Fabricacion y Montaje Monorriel para 500Kg",
+    client: "Concha y Toro",
     images: [
-      { src: "/images/foto26.jpeg", alt: "Estructura Industrial - Fábrica" },
-      { src: "/images/foto27.jpeg", alt: "Estructura Industrial - Proceso de soldadura" },
-      { src: "/images/foto28.jpeg", alt: "Estructura Industrial - Vista final" },
+      { src: "/images/foto33.jpeg", alt: "Estructura Industrial - Fábrica" },
+      { src: "/images/foto34.jpeg", alt: "Estructura Industrial - Proceso de soldadura" },
+      { src: "/images/foto35.jpeg", alt: "Estructura Industrial - Vista final" },
     ],
   },
 ];
@@ -46,16 +46,19 @@ const projectsData = [
 
 // --- DATOS DE GALERÍA (manteniendo los que ya tienes) ---
 const galleryImagesData = [
-    { src: "/images/foto12.jpeg", alt: "Detalle de soldadura de estructura" },
-    { src: "/images/foto13.jpeg", alt: "Trabajo en taller metalúrgico" },
-    { src: "/images/foto14.jpeg", alt: "Carro industrial en fabricación" },
-    { src: "/images/foto15.jpeg", alt: "Herramientas de precisión para metal" },
-    { src: "/images/foto16.jpeg", alt: "Estructura metálica grande instalada" },
-    { src: "/images/foto17.jpeg", alt: "Proceso de corte por plasma" },
-    { src: "/images/foto18.jpeg", alt: "Equipo de protección personal en taller" },
-    { src: "/images/foto22.jpeg", alt: "Diseño de estructura en software CAD" },
-    // ¡Añade más objetos aquí si tienes más de 8 imágenes para la galería!
-];
+    { src: "/images/foto12.jpeg", alt: "Carro yegua 400 kg" },
+    { src: "/images/foto13.jpeg", alt: "Carro yegua 500 kg" },
+    { src: "/images/foto14.jpeg", alt: "Carro industrial con soportes" },
+    { src: "/images/foto15.jpeg", alt: "Carro de carga industrial" },
+    { src: "/images/foto16.jpeg", alt: "Carro de transporte para tripodes y soportes de iluminación o fotografía" },
+    { src: "/images/foto17.jpeg", alt: "Carro de carga" },
+    { src: "/images/foto18.jpeg", alt: "Equipo mueble industrial" },
+    { src: "/images/foto22.jpeg", alt: "Escalera móvil 2 metros" },
+    { src: "/images/foto36.jpeg", alt: "Carro para gas 45kg" },
+    { src: "/images/foto37.jpeg", alt: "Carro para gas 45kg" },
+    { src: "/images/foto38.jpeg", alt: "Fabricacion, diseño de productos y estructuras Metalicas" },
+    { src: "/images/foto39.jpeg", alt: "Rueda Neumatica para carretilla" },
+
 // --- FIN DE DATOS DE GALERÍA ---
 
 
