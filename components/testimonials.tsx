@@ -8,7 +8,7 @@ export default function Testimonials() {
       name: "Carlos Rodríguez",
       company: "Constructora ABC",
       // CAMBIO: Ejemplo de imagen con DiceBear (ajusta la URL o usa tus propias imágenes)
-      image: "https://api.dicebear.com/7.x/adventurer/svg?seed=Carlos",
+      image: "https://api.dicebear.com/7.x/fun-emoji/svg?seed=Carlos",
       rating: 5,
       text: "VAGMETAL ha sido un socio clave en nuestros proyectos de construcción. La calidad de sus estructuras metálicas y su profesionalismo son excepcionales.",
     },
@@ -26,7 +26,7 @@ export default function Testimonials() {
       name: "Juan Pérez",
       company: "CCU",
       // CAMBIO: Ejemplo de imagen con DiceBear
-      image: "https://api.dicebear.com/7.x/adventurer/svg?seed=Juan",
+      image: "https://api.dicebear.com/7.x/fun-emoji/svg?seed=Juan",
       rating: 5,
       text: "Los carros para nuestra bodega de almacenamiento superaron nuestras expectativas. Excelente servicio y atención personalizada.",
     },

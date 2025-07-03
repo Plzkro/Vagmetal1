@@ -2,20 +2,33 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
+/* Estas variables son las que Next.js generaba por defecto.
+  Si estás usando el sistema de temas de Shadcn UI (next-themes),
+  las variables definidas en @layer base para --background, --foreground, etc.
+  son las que realmente controlarán los colores de tu sitio.
+  Puedes eliminarlas si no tienes componentes personalizados que dependan directamente de ellas,
+  ya que la regla body { @apply bg-background text-foreground; } ya cubre el cuerpo.
+*/
+/* :root {
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 255, 255, 255;
   --background-end-rgb: 255, 255, 255;
-}
+} 
+*/
 
 html {
   scroll-behavior: smooth;
 }
 
+/* Esta regla también es redundante si body { @apply bg-background text-foreground; }
+  está en @layer base y estás usando el sistema de temas.
+*/
+/*
 body {
   color: rgb(var(--foreground-rgb));
   background: linear-gradient(to bottom, transparent, rgb(var(--background-end-rgb))) rgb(var(--background-start-rgb));
 }
+*/
 
 @layer base {
   :root {
