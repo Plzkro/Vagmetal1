@@ -14,7 +14,7 @@ const projectsData = [
     description: "Carros de Carga para bodega de almacenamiento",
     client: "CCU",
     images: [
-      { src: "/images/foto26.jpeg", alt: "Carro de bodega CCU - Vista 1" },
+      { src: "/images/foto26.jpg", alt: "Carro de bodega CCU - Vista 1" },
       { src: "/images/foto12.jpeg", alt: "Carro de bodega CCU - Vista 2" },
       { src: "/images/foto13.jpeg", alt: "Carro de bodega CCU - Detalle" },
     ],
@@ -24,9 +24,9 @@ const projectsData = [
     description: "Desarme y armado de Rack mezzanina o altillo",
     client: "Empresa Constructora",
     images: [
-      { src: "/images/foto30.jpeg", alt: "Estructura - Vista general" },
-      { src: "/images/foto31.jpeg", alt: "Estructura - Montaje" },
-      { src: "/images/foto32.jpeg", alt: "Estructura - Detalle " },
+      { src: "/images/foto30.jpg", alt: "Estructura - Vista general" },
+      { src: "/images/foto31.jpg", alt: "Estructura - Montaje" },
+      { src: "/images/foto32.jpg", alt: "Estructura - Detalle " },
     ],
   },
   {
@@ -34,9 +34,9 @@ const projectsData = [
     description: "Fabricacion y Montaje Monorriel para 500Kg",
     client: "Concha y Toro",
     images: [
-      { src: "/images/foto33.jpeg", alt: "Estructura Industrial - Fábrica" },
-      { src: "/images/foto34.jpeg", alt: "Estructura Industrial - Proceso de soldadura" },
-      { src: "/images/foto35.jpeg", alt: "Estructura Industrial - Vista final" },
+      { src: "/images/foto33.jpg", alt: "Estructura Industrial - Fábrica" },
+      { src: "/images/foto34.jpg", alt: "Estructura Industrial - Proceso de soldadura" },
+      { src: "/images/foto35.jpg", alt: "Estructura Industrial - Vista final" },
     ],
   },
 ];
@@ -53,13 +53,13 @@ const galleryImagesData = [
     { src: "/images/foto17.jpeg", alt: "Carro de carga" },
     { src: "/images/foto18.jpeg", alt: "Equipo mueble industrial" },
     { src: "/images/foto22.jpeg", alt: "Escalera móvil 2 metros" },
-    { src: "/images/foto36.jpeg", alt: "Carro para gas 45kg" },
-    { src: "/images/foto37.jpeg", alt: "Carro para gas 45kg" },
-    { src: "/images/foto38.jpeg", alt: "Fabricacion, diseño de productos y estructuras Metalicas" },
-    { src: "/images/foto39.jpeg", alt: "Rueda Neumatica para carretilla" },
-    { src: "/images/foto40.jpeg", alt: "Soporte de Gato de alta resistencia" },
-    { src: "/images/foto41.jpeg", alt: "Carro para botellas de acero" },
-    { src: "/images/foto42.jpeg", alt: "Carro de plataforma o carro plano para transporte de carga" },
+    { src: "/images/foto36.jpg", alt: "Carro para gas 45kg" },
+    { src: "/images/foto37.jpg", alt: "Carro para gas 45kg" },
+    { src: "/images/foto38.jpg", alt: "Fabricacion, diseño de productos y estructuras Metalicas" },
+    { src: "/images/foto39.jpg", alt: "Rueda Neumatica para carretilla" },
+    { src: "/images/foto40.jpg", alt: "Soporte de Gato de alta resistencia" },
+    { src: "/images/foto41.jpg", alt: "Carro para botellas de acero" },
+    { src: "/images/foto42.jpg", alt: "Carro de plataforma o carro plano para transporte de carga" },
 ];
 // --- FIN DE DATOS DE GALERÍA ---
 
