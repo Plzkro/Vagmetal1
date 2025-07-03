@@ -17,8 +17,9 @@ export default function Header() {
 
   return (
     <header className="fixed left-0 right-0 top-0 z-50 bg-white/90 shadow-sm backdrop-blur-sm">
-      {/* CAMBIO CLAVE: Eliminar h-16 y añadir py-4 para padding vertical */}
-      <div className="container mx-auto flex items-center justify-between px-4 py-4"> {/* Eliminado h-16, Añadido py-4 */}
+      {/* CAMBIO CLAVE: Cambiado 'container mx-auto' por un 'max-w' específico y 'mx-auto' */}
+      {/* Prueba con max-w-screen-xl o max-w-6xl según prefieras el ancho máximo */}
+      <div className="max-w-screen-xl mx-auto flex items-center justify-between px-4 py-4"> {/* CAMBIO AQUI */}
         <Link href="/" className="flex items-center">
           <Image
             src="/images/LogoVagmetal.png"
