@@ -61,7 +61,7 @@ const galleryImagesData = [
     { src: "/images/foto40.jpeg", alt: "Soporte de Gato de alta resistencia" },
     { src: "/images/foto41.jpeg", alt: "Carro para botellas de acero" },
     { src: "/images/foto42.jpeg", alt: "Carro de plataforma o carro plano para transporte de carga" },
-
+]
 
 // --- FIN DE DATOS DE GALERÍA ---
 
