@@ -10,7 +10,7 @@ export default function Footer() {
             <h3 className="mb-4 text-lg font-bold">VAGMETAL SPA</h3>
             <p className="mb-4 text-gray-400">Trabajando para su éxito con la industria metalúrgica</p>
             <div className="flex space-x-4">
-              <Link href="#" className="text-gray-400 transition-colors hover:text-white">
+              <Link href="https://www.facebook.com/profile.php?id=100090390775979" className="text-gray-400 transition-colors hover:text-white">
                 <Facebook className="h-5 w-5" />
                 <span className="sr-only">Facebook</span>
               </Link>
