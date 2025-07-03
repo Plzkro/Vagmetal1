@@ -58,11 +58,11 @@ export default function Footer() {
               </li>
               <li className="flex items-center text-gray-400">
                 <Phone className="mr-2 h-5 w-5 text-blue-500" />
-                +56 9 1234 5678
+                +56934252069
               </li>
               <li className="flex items-center text-gray-400">
                 <Mail className="mr-2 h-5 w-5 text-blue-500" />
-                contacto@vagmetal.cl
+                vagmetal.alemany@gmail.com
               </li>
             </ul>
           </div>

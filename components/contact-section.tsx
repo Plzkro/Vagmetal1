@@ -120,7 +120,7 @@ export default function ContactSection() {
                   <Phone className="mr-3 h-5 w-5 text-blue-700" />
                   <div>
                     <p className="font-medium text-gray-900">Teléfono</p>
-                    <p className="text-gray-700">+56 9 1234 5678</p>
+                    <p className="text-gray-700">+56934252069</p>
                   </div>
                 </div>
 
