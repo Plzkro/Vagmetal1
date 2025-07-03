@@ -113,7 +113,7 @@ export default function TabNavigation() {
 
           <TabsContent value="galeria" className="mt-6">
             <div className="grid gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
-              {[1, 2, 3, 4, 5, 6, 7, 8].map((item) => (
+              {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15 , 16, 17, 18, 19, 20, 21, 22, 23, 24, 25].map((item) => (
                 <div key={item} className="group relative overflow-hidden rounded-lg">
                   <Image
                     src={`/images/foto${item}.jpeg`}
