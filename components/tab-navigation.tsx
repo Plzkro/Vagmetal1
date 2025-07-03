@@ -1,12 +1,85 @@
+// components/tab-navigation.tsx
+
 "use client"
 
 import { useState } from "react"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
-import { History, Building2, ImageIcon } from "lucide-react"
+import { History, Building2, ImageIcon, ChevronLeft, ChevronRight } from "lucide-react" // Importamos los iconos de flecha
 import Image from "next/image"
+
+// --- DATOS DE PROYECTOS ---
+// Define tus proyectos con sus múltiples imágenes aquí
+const projectsData = [
+  {
+    title: "Proyecto CCU",
+    description: "Carros para bodega de almacenamiento",
+    client: "CCU",
+    images: [
+      { src: "/images/foto8.jpeg", alt: "Carro de bodega CCU - Vista 1" },
+      { src: "/images/foto9.jpeg", alt: "Carro de bodega CCU - Vista 2" },
+      { src: "/images/foto10.jpeg", alt: "Carro de bodega CCU - Detalle" },
+    ],
+  },
+  {
+    title: "Proyecto Metalcom",
+    description: "Estructuras metálicas para construcción",
+    client: "Empresa Constructora",
+    images: [
+      { src: "/images/foto23.jpeg", alt: "Estructura Metalcom - Vista general" },
+      { src: "/images/foto24.jpeg", alt: "Estructura Metalcom - Montaje" },
+      { src: "/images/foto25.jpeg", alt: "Estructura Metalcom - Detalle unión" },
+    ],
+  },
+  {
+    title: "Estructuras Industriales",
+    description: "Fabricación de estructuras metálicas personalizadas",
+    client: "Sector Industrial",
+    images: [
+      { src: "/images/foto26.jpeg", alt: "Estructura Industrial - Fábrica" },
+      { src: "/images/foto27.jpeg", alt: "Estructura Industrial - Proceso de soldadura" },
+      { src: "/images/foto28.jpeg", alt: "Estructura Industrial - Vista final" },
+    ],
+  },
+];
+// --- FIN DE DATOS DE PROYECTOS ---
+
+
+// --- DATOS DE GALERÍA (manteniendo los que ya tienes) ---
+const galleryImagesData = [
+    { src: "/images/foto12.jpeg", alt: "Detalle de soldadura de estructura" },
+    { src: "/images/foto13.jpeg", alt: "Trabajo en taller metalúrgico" },
+    { src: "/images/foto14.jpeg", alt: "Carro industrial en fabricación" },
+    { src: "/images/foto15.jpeg", alt: "Herramientas de precisión para metal" },
+    { src: "/images/foto16.jpeg", alt: "Estructura metálica grande instalada" },
+    { src: "/images/foto17.jpeg", alt: "Proceso de corte por plasma" },
+    { src: "/images/foto18.jpeg", alt: "Equipo de protección personal en taller" },
+    { src: "/images/foto22.jpeg", alt: "Diseño de estructura en software CAD" },
+    // ¡Añade más objetos aquí si tienes más de 8 imágenes para la galería!
+];
+// --- FIN DE DATOS DE GALERÍA ---
+
 
 export default function TabNavigation() {
   const [activeTab, setActiveTab] = useState("historia")
+
+  // Nuevo estado para controlar qué imagen se muestra en cada proyecto
+  // Usaremos un objeto donde la clave es el índice del proyecto y el valor es el índice de la imagen
+  const [currentProjectImageIndex, setCurrentProjectImageIndex] = useState<{ [key: number]: number }>({});
+
+  // Función para cambiar la imagen del proyecto
+  const goToNextImage = (projectIndex: number, totalImages: number) => {
+    setCurrentProjectImageIndex(prev => ({
+      ...prev,
+      [projectIndex]: (prev[projectIndex] || 0 + 1) % totalImages
+    }));
+  };
+
+  const goToPrevImage = (projectIndex: number, totalImages: number) => {
+    setCurrentProjectImageIndex(prev => ({
+      ...prev,
+      [projectIndex]: (prev[projectIndex] || 0 - 1 + totalImages) % totalImages
+    }));
+  };
 
   return (
     <section className="w-full bg-white py-16" id="servicios">
@@ -66,65 +139,60 @@ export default function TabNavigation() {
 
           <TabsContent value="proyectos" className="mt-6">
             <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-              <div className="overflow-hidden rounded-lg border border-gray-200 bg-white shadow-sm transition-all duration-300 hover:shadow-md">
-                <div className="relative h-64">
-                  <Image src="/images/foto8.jpeg" alt="Proyecto CCU" fill className="object-cover" />
+              {/* Mapeamos los datos de nuestros proyectos */}
+              {projectsData.map((project, projectIndex) => (
+                <div key={project.title} className="overflow-hidden rounded-lg border border-gray-200 bg-white shadow-sm transition-all duration-300 hover:shadow-md">
+                  <div className="relative h-64">
+                    <Image
+                      src={project.images[currentProjectImageIndex[projectIndex] || 0].src} // Muestra la imagen actual del proyecto
+                      alt={project.images[currentProjectImageIndex[projectIndex] || 0].alt}
+                      fill
+                      className="object-cover"
+                    />
+                    {/* Controles de navegación de imágenes */}
+                    {project.images.length > 1 && (
+                      <>
+                        <button
+                          onClick={() => goToPrevImage(projectIndex, project.images.length)}
+                          className="absolute left-2 top-1/2 -translate-y-1/2 rounded-full bg-black/50 p-1 text-white opacity-0 transition-opacity group-hover:opacity-100"
+                          aria-label="Imagen anterior"
+                        >
+                          <ChevronLeft className="h-5 w-5" />
+                        </button>
+                        <button
+                          onClick={() => goToNextImage(projectIndex, project.images.length)}
+                          className="absolute right-2 top-1/2 -translate-y-1/2 rounded-full bg-black/50 p-1 text-white opacity-0 transition-opacity group-hover:opacity-100"
+                          aria-label="Siguiente imagen"
+                        >
+                          <ChevronRight className="h-5 w-5" />
+                        </button>
+                      </>
+                    )}
+                  </div>
+                  <div className="p-6">
+                    <h3 className="mb-2 text-xl font-bold text-gray-900">{project.title}</h3>
+                    <p className="mb-4 text-gray-700">{project.description}</p>
+                    <p className="text-sm font-medium text-blue-700">Cliente: {project.client}</p>
+                  </div>
                 </div>
-                <div className="p-6">
-                  <h3 className="mb-2 text-xl font-bold text-gray-900">Proyecto CCU</h3>
-                  <p className="mb-4 text-gray-700">Carros para bodega de almacenamiento</p>
-                  <p className="text-sm font-medium text-blue-700">Cliente: CCU</p>
-                </div>
-              </div>
-
-              <div className="overflow-hidden rounded-lg border border-gray-200 bg-white shadow-sm transition-all duration-300 hover:shadow-md">
-                <div className="relative h-64">
-                  <Image
-                    src="/images/foto23.jpeg"
-                    alt="Proyecto Estructuras de Soporte"
-                    fill
-                    className="object-cover"
-                  />
-                </div>
-                <div className="p-6">
-                  <h3 className="mb-2 text-xl font-bold text-gray-900">Proyecto Metalcom</h3>
-                  <p className="mb-4 text-gray-700">Estructuras metálicas para construcción</p>
-                  <p className="text-sm font-medium text-blue-700">Cliente: Empresa Constructora</p>
-                </div>
-              </div>
-
-              <div className="overflow-hidden rounded-lg border border-gray-200 bg-white shadow-sm transition-all duration-300 hover:shadow-md">
-                <div className="relative h-64">
-                  <Image
-                    src="/images/foto25.jpeg"
-                    alt="Proyecto Estructuras y Soportes"
-                    fill
-                    className="object-cover"
-                  />
-                </div>
-                <div className="p-6">
-                  <h3 className="mb-2 text-xl font-bold text-gray-900">Estructuras Industriales</h3>
-                  <p className="mb-4 text-gray-700">Fabricación de estructuras metálicas personalizadas</p>
-                  <p className="text-sm font-medium text-blue-700">Cliente: Sector Industrial</p>
-                </div>
-              </div>
+              ))}
             </div>
           </TabsContent>
 
           <TabsContent value="galeria" className="mt-6">
             <div className="grid gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
-              {[12, 13, 14, 15 , 16, 17, 18, 22].map((item) => (
-                <div key={item} className="group relative overflow-hidden rounded-lg">
+              {galleryImagesData.map((img, index) => (
+                <div key={index} className="group relative overflow-hidden rounded-lg">
                   <Image
-                    src={`/images/foto${item}.jpeg`}
-                    alt={`Galería imagen ${item}`}
+                    src={img.src}
+                    alt={img.alt}
                     width={400}
                     height={300}
                     className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100"></div>
                   <div className="absolute bottom-0 left-0 p-4 text-white opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-                    <h4 className="text-lg font-bold">Proyecto {item}</h4>
+                    <h4 className="text-lg font-bold">{img.alt}</h4>
                     <p className="text-sm">Descripción breve del trabajo realizado</p>
                   </div>
                 </div>
