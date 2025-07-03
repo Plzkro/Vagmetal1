@@ -54,7 +54,7 @@ export default function TabNavigation() {
               </div>
               <div className="overflow-hidden rounded-lg">
                 <Image
-                  src="/placeholder.svg?height=600&width=800"
+                  src="/images/foto3.jpeg"
                   alt="Taller de VAGMETAL"
                   width={800}
                   height={600}
@@ -68,7 +68,7 @@ export default function TabNavigation() {
             <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
               <div className="overflow-hidden rounded-lg border border-gray-200 bg-white shadow-sm transition-all duration-300 hover:shadow-md">
                 <div className="relative h-64">
-                  <Image src="/placeholder.svg?height=400&width=600" alt="Proyecto CCU" fill className="object-cover" />
+                  <Image src="/images/foto8.jpeg" alt="Proyecto CCU" fill className="object-cover" />
                 </div>
                 <div className="p-6">
                   <h3 className="mb-2 text-xl font-bold text-gray-900">Proyecto CCU</h3>
@@ -80,8 +80,8 @@ export default function TabNavigation() {
               <div className="overflow-hidden rounded-lg border border-gray-200 bg-white shadow-sm transition-all duration-300 hover:shadow-md">
                 <div className="relative h-64">
                   <Image
-                    src="/placeholder.svg?height=400&width=600"
-                    alt="Proyecto Metalcom"
+                    src="/images/foto23.jpeg"
+                    alt="Proyecto Estructuras de Soporte"
                     fill
                     className="object-cover"
                   />
@@ -96,8 +96,8 @@ export default function TabNavigation() {
               <div className="overflow-hidden rounded-lg border border-gray-200 bg-white shadow-sm transition-all duration-300 hover:shadow-md">
                 <div className="relative h-64">
                   <Image
-                    src="/placeholder.svg?height=400&width=600"
-                    alt="Proyecto Estructuras"
+                    src="/images/foto25.jpeg"
+                    alt="Proyecto Estructuras y Soportes"
                     fill
                     className="object-cover"
                   />
@@ -116,7 +116,7 @@ export default function TabNavigation() {
               {[1, 2, 3, 4, 5, 6, 7, 8].map((item) => (
                 <div key={item} className="group relative overflow-hidden rounded-lg">
                   <Image
-                    src={`/placeholder.svg?height=300&width=400&text=Imagen ${item}`}
+                    src={`/images/foto${item}.jpeg`}
                     alt={`Galería imagen ${item}`}
                     width={400}
                     height={300}
