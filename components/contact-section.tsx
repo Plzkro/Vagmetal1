@@ -136,16 +136,15 @@ export default function ContactSection() {
             </div>
 
             <div className="h-[300px] overflow-hidden rounded-lg bg-white shadow-md">
-  <iframe
-    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d13303.432832145952!2d-70.5907409!3d-33.3760447!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9662c12a7a5f0b51%3A0x7d0a6c6e7a2b9f1d!2sAv.%20Ejemplo%201234%2C%20Santiago%2C%20Chile!5e0!3m2!1sen!2sus!4v1678888888888!5m2!1sen!2sus" // <-- ¡Esta es la línea que vamos a cambiar!
-    width="100%"
-    height="100%"
-    style={{ border: 0 }}
-    allowFullScreen
-    loading="lazy"
-    referrerPolicy="no-referrer-when-downgrade"
-    title="Ubicación de VAGMETAL SPA"
-  ></iframe>
+<iframe
+  src="https://maps.google.com/?cid=7134685172359007329&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQ"
+  width="600"
+  height="450"
+  style="border:0;"
+  allowfullscreen=""
+  loading="lazy"
+  referrerpolicy="no-referrer-when-downgrade"
+></iframe>
 </div>
           </div>
         </div>
