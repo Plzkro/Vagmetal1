@@ -9,7 +9,9 @@ import "./globals.css"
 import Header from "@/components/header"
 import Footer from "@/components/footer"
 import { ThemeProvider } from "@/components/theme-provider"
-import WhatsAppButton from "@/components/WhatsAppButton"; // Mantenemos la importación
+import WhatsAppButton from "@/components/WhatsAppButton";
+import ScrollToTopButton from "@/components/scroll-to-top-button"; // ¡NUEVO: Importar el botón de scroll!
+import WelcomeBanner from "@/components/welcome-banner";       // ¡NUEVO: Importar el banner de bienvenida!
 
 const inter = Inter({ subsets: ["latin"] })
 
@@ -33,14 +35,16 @@ export default function RootLayout({
     <html lang="es" suppressHydrationWarning>
       <body className={inter.className}>
         <ThemeProvider>
+          <WelcomeBanner /> {/* ¡NUEVO: Renderizar el banner de bienvenida al inicio del body! */}
           <Header />
           {children}
           <Footer />
           {/* Botón de WhatsApp se mantiene ACTIVO */}
-          <WhatsAppButton 
+          <WhatsAppButton
             phoneNumber="+56934252069" // ¡CONFIRMADO Y ACTUALIZADO CON TU NÚMERO!
             message="Hola VAGMETAL SPA, me gustaría saber más sobre sus servicios de estructuras metálicas."
           />
+          <ScrollToTopButton /> {/* ¡NUEVO: Renderizar el botón de scroll al final del contenido! */}
         </ThemeProvider>
         <SpeedInsights />
         <Analytics />
