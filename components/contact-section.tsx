@@ -1,8 +1,16 @@
 // components/contact-section.tsx
 
-import { Mail, Phone, MapPin, Clock } from "lucide-react" // Se agrega Mail para el icono de correo
+import Link from "next/link"; // Necesitamos importar Link para los enlaces
+import { Mail, Phone, MapPin, Clock } from "lucide-react";
 
 export default function ContactSection() {
+  const phoneNumber = "+56934252069";
+  const emailAddress = "vagmetal.alemany@gmail.com";
+  // Enlace a Google Maps para la dirección exacta
+  const mapAddress = "Los Manzanos 2435, La Pintana, Región Metropolitana, Chile";
+  const googleMapsUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(mapAddress)}`;
+
+
   return (
     <section className="w-full bg-gray-100 py-16" id="contacto">
       <div className="container mx-auto px-4">
@@ -15,18 +23,38 @@ export default function ContactSection() {
             <div className="space-y-4">
               <div className="flex items-start gap-3">
                 <MapPin className="h-5 w-5 flex-shrink-0 text-blue-700 mt-1" />
-                <p className="text-gray-700">
+                {/* CAMBIO: Dirección ahora es un enlace a Google Maps */}
+                <Link
+                  href={googleMapsUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-gray-700 hover:text-blue-700 transition-colors underline"
+                  aria-label="Ver dirección en Google Maps"
+                >
                   Los Manzanos 2435, 8840112 La Pintana, Región Metropolitana, Chile
-                </p>
+                </Link>
               </div>
               <div className="flex items-center gap-3">
                 <Phone className="h-5 w-5 flex-shrink-0 text-blue-700" />
-                <p className="text-gray-700">+56934252069</p>
+                {/* CAMBIO: Teléfono ahora es un enlace clicable */}
+                <Link
+                  href={`tel:${phoneNumber}`}
+                  className="text-gray-700 hover:text-blue-700 transition-colors underline"
+                  aria-label="Llamar a VAGMETAL SPA"
+                >
+                  {phoneNumber}
+                </Link>
               </div>
-              {/* CAMBIO: Se agrega el correo corporativo */}
               <div className="flex items-center gap-3">
                 <Mail className="h-5 w-5 flex-shrink-0 text-blue-700" />
-                <p className="text-gray-700">vagmetal.alemany@gmail.com</p>
+                {/* CAMBIO: Correo ahora es un enlace clicable */}
+                <Link
+                  href={`mailto:${emailAddress}`}
+                  className="text-gray-700 hover:text-blue-700 transition-colors underline"
+                  aria-label="Enviar correo a VAGMETAL SPA"
+                >
+                  {emailAddress}
+                </Link>
               </div>
               <div className="flex items-start gap-3">
                 <Clock className="h-5 w-5 flex-shrink-0 text-blue-700 mt-1" />
@@ -39,7 +67,7 @@ export default function ContactSection() {
             </div>
           </div>
 
-          {/* Formulario de Contacto (mantengo la estructura actual si ya lo tienes) */}
+          {/* Formulario de Contacto (mantengo la estructura actual) */}
           <div className="lg:col-span-2 rounded-lg bg-white p-6 shadow-md">
             <h3 className="mb-4 text-xl font-semibold text-gray-900">Envíanos un Mensaje</h3>
             <form className="space-y-4">
@@ -87,5 +115,5 @@ export default function ContactSection() {
         </div>
       </div>
     </section>
-  )
+  );
 }
