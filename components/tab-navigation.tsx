@@ -10,33 +10,33 @@ import Image from "next/image"
 // --- DATOS DE PROYECTOS ---
 const projectsData = [
   {
-    title: "Proyecto CCU",
-    description: "Carros de Carga para bodega de almacenamiento",
+    title: "Proyecto CCU - Estructuras de Carga", // Título ajustado
+    description: "Fabricación y montaje de estructuras de carga personalizadas para bodegas industriales.", // Descripción ajustada
     client: "CCU",
     images: [
-      { src: "/images/foto26.jpg", alt: "Carro de bodega CCU - Vista 1" },
-      { src: "/images/foto12.jpeg", alt: "Carro de bodega CCU - Vista 2" },
-      { src: "/images/foto13.jpeg", alt: "Carro de bodega CCU - Detalle" },
+      { src: "/images/foto43.jpg", alt: "Estructura de carga industrial fabricada por VAGMETAL SPA para CCU" }, // <--- ¡ACTUALIZA ESTO con la ruta de tu nueva imagen CCU!
+      { src: "/images/foto12.jpeg", alt: "Detalle de soldadura en estructura metálica" }, // Alt text revisado si aplica
+      { src: "/images/foto13.jpeg", alt: "Proceso de montaje de estructura metálica en sitio" }, // Alt text revisado si aplica
     ],
   },
   {
-    title: "Proyecto desarme estructuras metálicas",
-    description: "Desarme y armado de Rack mezzanina o altillo",
+    title: "Proyecto Desarme y Montaje de Rack Mezzanina", // Título ajustado
+    description: "Servicios de desarme y posterior montaje de racks mezzanina (altillos) y estructuras de almacenamiento.", // Descripción mejorada
     client: "Empresa Constructora",
     images: [
-      { src: "/images/foto30.jpg", alt: "Estructura - Vista general" },
-      { src: "/images/foto31.jpg", alt: "Estructura - Montaje" },
-      { src: "/images/foto32.jpg", alt: "Estructura - Detalle " },
+      { src: "/images/foto30.jpg", alt: "Rack mezzanina industrial - Vista general" },
+      { src: "/images/foto31.jpg", alt: "Montaje de estructura de rack mezzanina" },
+      { src: "/images/foto32.jpg", alt: "Detalle de unión en rack mezzanina " },
     ],
   },
   {
-    title: "Proyecto Monorriel",
-    description: "Fabricacion y Montaje Monorriel para 500Kg",
+    title: "Proyecto Monorriel Industrial", // Título ajustado
+    description: "Diseño, fabricación y montaje de sistemas monorriel de hasta 500Kg para transporte de carga en entornos industriales.", // Descripción mejorada y más general
     client: "Concha y Toro",
     images: [
-      { src: "/images/foto33.jpg", alt: "Estructura Industrial - Fábrica" },
-      { src: "/images/foto34.jpg", alt: "Estructura Industrial - Proceso de soldadura" },
-      { src: "/images/foto35.jpg", alt: "Estructura Industrial - Vista final" },
+      { src: "/images/foto33.jpg", alt: "Monorriel industrial instalado en planta de fabricación" },
+      { src: "/images/foto34.jpg", alt: "Proceso de soldadura de componentes para monorriel" },
+      { src: "/images/foto35.jpg", alt: "Vista final de sistema monorriel en operación" },
     ],
   },
 ];
@@ -44,22 +44,23 @@ const projectsData = [
 
 
 // --- DATOS DE GALERÍA ---
+// CAMBIO: Alt text y descripciones más generales sobre estructuras metálicas
 const galleryImagesData = [
-    { src: "/images/foto12.jpeg", alt: "Carro yegua 400 kg" },
-    { src: "/images/foto13.jpeg", alt: "Carro yegua 500 kg" },
-    { src: "/images/foto14.jpeg", alt: "Carro industrial con soportes" },
-    { src: "/images/foto15.jpeg", alt: "Carro de carga industrial" },
-    { src: "/images/foto16.jpeg", alt: "Carro de transporte para tripodes y soportes de iluminación o fotografía" },
-    { src: "/images/foto17.jpeg", alt: "Carro de carga" },
-    { src: "/images/foto18.jpeg", alt: "Equipo mueble industrial" },
-    { src: "/images/foto22.jpeg", alt: "Escalera móvil 2 metros" },
-    { src: "/images/foto36.jpg", alt: "Carro para gas 45kg" },
-    { src: "/images/foto37.jpg", alt: "Carro para gas 45kg" },
-    { src: "/images/foto38.jpg", alt: "Fabricacion, diseño de productos y estructuras Metalicas" },
-    { src: "/images/foto39.jpg", alt: "Rueda Neumatica para carretilla" },
-    { src: "/images/foto40.jpg", alt: "Soporte de Gato de alta resistencia" },
-    { src: "/images/foto41.jpg", alt: "Carro para botellas de acero" },
-    { src: "/images/foto42.jpg", alt: "Carro de plataforma o carro plano para transporte de carga" },
+    { src: "/images/foto12.jpeg", alt: "Estructura metálica móvil de soporte" },
+    { src: "/images/foto13.jpeg", alt: "Bastidor metálico para transporte de equipo" },
+    { src: "/images/foto14.jpeg", alt: "Soporte y estructuras metálicas a medida" },
+    { src: "/images/foto15.jpeg", alt: "Equipamiento industrial metálico" },
+    { src: "/images/foto16.jpeg", alt: "Estructura de transporte robusta para equipos" },
+    { src: "/images/foto17.jpeg", alt: "Base metálica para maquinaria pesada" },
+    { src: "/images/foto18.jpeg", alt: "Mueble o estación de trabajo industrial metálica" },
+    { src: "/images/foto22.jpeg", alt: "Escalera móvil metálica de 2 metros" },
+    { src: "/images/foto36.jpg", alt: "Jaula metálica de seguridad para cilindros de gas 45kg" },
+    { src: "/images/foto37.jpg", alt: "Protección metálica para cilindros de gas industrial" },
+    { src: "/images/foto38.jpg", alt: "Diseño y fabricación de diversas estructuras metálicas" },
+    { src: "/images/foto39.jpg", alt: "Rueda neumática de alta resistencia para estructuras móviles" },
+    { src: "/images/foto40.jpg", alt: "Soporte metálico reforzado para izaje o apoyo" },
+    { src: "/images/foto41.jpg", alt: "Estructura de almacenamiento metálica para botellas de acero" },
+    { src: "/images/foto42.jpeg", alt: "Plataforma de transporte metálica o carro de plataforma" },
 ];
 // --- FIN DE DATOS DE GALERÍA ---
 
@@ -96,8 +97,6 @@ export default function TabNavigation() {
         <h2 className="mb-10 text-center text-3xl font-bold text-gray-900 sm:text-4xl">Nuestros Servicios</h2>
 
         <Tabs defaultValue="historia" className="w-full" onValueChange={setActiveTab}>
-          {/* CAMBIO CLAVE: Aumentar el margen inferior de TabsList para móviles */}
-          {/* Se cambió mb-8 a mb-16 para dar más espacio en pantallas pequeñas, y se reinicia en sm */}
           <TabsList className="mx-auto mb-16 sm:mb-0 grid w-full max-w-3xl grid-cols-1 gap-4 sm:grid-cols-3">
             <TabsTrigger
               value="historia"
@@ -122,26 +121,22 @@ export default function TabNavigation() {
             </TabsTrigger>
           </TabsList>
 
-          {/* CAMBIO CLAVE: Aumentar el padding superior de TabsContent para móviles */}
-          {/* Se cambió pt-8 a pt-16 para asegurar un buen espacio interno desde arriba */}
           <TabsContent value="historia" className="pt-16 sm:pt-0">
             <div className="grid gap-8 md:grid-cols-2">
               <div className="flex flex-col justify-center">
                 <h3 className="mb-4 text-2xl font-bold text-gray-900">Nuestra Historia</h3>
+                {/* CAMBIO DE TEXTO: Eliminado "metalurgia" y "venta de herramientas", más general sobre estructuras */}
                 <p className="text-gray-700">
-                  VAGMETAL SPA es una empresa con más de 10 años de experiencia, que opera en el sector de la metalurgia
-                  y la venta de herramientas. Nos especializamos en la comercialización de herramientas, la fabricación
-                  de carros, y el desarrollo de estructuras metálicas.
+                  VAGMETAL SPA es una empresa con más de 10 años de experiencia, especializada en el diseño, fabricación y montaje de estructuras metálicas. Ofrecemos soluciones integrales y personalizadas para la industria y construcción, garantizando durabilidad y eficiencia.
                 </p>
                 <p className="mt-4 text-gray-700">
-                  Desde nuestros inicios, nos hemos comprometido con la calidad y la innovación, ofreciendo soluciones
-                  personalizadas que satisfacen las necesidades específicas de cada cliente.
+                  Desde nuestros inicios, nos hemos comprometido con la calidad y la innovación, adaptándonos a las necesidades específicas de cada cliente y proyecto en Chile.
                 </p>
               </div>
               <div className="overflow-hidden rounded-lg">
                 <Image
-                  src="/images/foto3.jpeg"
-                  alt="Taller de VAGMETAL"
+                  src="/images/foto3.jpeg" // Mantengo esta foto ya que no se indicó cambio
+                  alt="Taller de VAGMETAL fabricando estructuras metálicas a medida" // Alt text mejorado
                   width={800}
                   height={600}
                   className="h-full w-full object-cover transition-transform duration-500 hover:scale-105"
@@ -207,7 +202,8 @@ export default function TabNavigation() {
                   <div className="absolute inset-0 bg-black/80 opacity-0 transition-opacity duration-300 group-hover:opacity-100"></div>
                   <div className="absolute bottom-0 left-0 p-4 text-white opacity-0 transition-opacity duration-300 group-hover:opacity-100">
                     <h4 className="text-lg font-bold">{img.alt}</h4>
-                    <p className="text-sm">Descripción breve del trabajo realizado</p>
+                    {/* Texto genérico o eliminar si no aplica */}
+                    <p className="text-sm">Estructura metálica a medida</p>
                   </div>
                 </div>
               ))}

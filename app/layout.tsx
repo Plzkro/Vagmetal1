@@ -9,15 +9,18 @@ import "./globals.css"
 import Header from "@/components/header"
 import Footer from "@/components/footer"
 import { ThemeProvider } from "@/components/theme-provider"
-import WhatsAppButton from "@/components/WhatsAppButton"; // <-- Importa el nuevo componente
+import WhatsAppButton from "@/components/WhatsAppButton"; // Mantenemos la importación
 
 const inter = Inter({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
-  title: "VAGMETAL SPA | Metalurgia y Estructuras Metálicas",
+  // CAMBIO: Título más preciso, solo sobre Estructuras Metálicas
+  title: "VAGMETAL SPA | Fabricación y Montaje de Estructuras Metálicas en Chile",
   description:
-    "Empresa especializada en metalurgia, fabricación de estructuras metálicas y comercialización de herramientas de alta calidad en Chile.",
-  keywords: "metalurgia, estructuras metálicas, herramientas, fabricación, carros, Chile",
+    // CAMBIO: Descripción enfocada en fabricación y montaje de estructuras metálicas, eliminando herramientas
+    "VAGMETAL SPA es una empresa chilena especializada en el diseño, fabricación y montaje de estructuras metálicas de alta calidad para la industria y construcción en todo Chile. Soluciones a medida para naves, galpones y proyectos estructurales.",
+  // CAMBIO: Palabras clave actualizadas para ser más generales en estructuras metálicas
+  keywords: "estructuras metálicas, fabricación de estructuras, montaje de estructuras, galpones, naves industriales, ingeniería metálica, estructuras de acero, proyectos metálicos, soldadura, Chile",
   generator: 'v0.dev'
 }
 
@@ -33,11 +36,10 @@ export default function RootLayout({
           <Header />
           {children}
           <Footer />
-          {/* ¡Añade tu botón de WhatsApp aquí! */}
-          {/* CAMBIA EL NÚMERO DE TELÉFONO POR EL DE VAGMETAL SPA (+código_país+número) */}
-          <WhatsAppButton
-            phoneNumber="+56934252069" // <--- ¡IMPORTANTE! REEMPLAZA ESTE NÚMERO
-            message="Hola VAGMETAL SPA, me gustaría saber más sobre sus servicios de metalurgia."
+          {/* Botón de WhatsApp se mantiene ACTIVO */}
+          <WhatsAppButton 
+            phoneNumber="+56934252069" // ¡CONFIRMADO Y ACTUALIZADO CON TU NÚMERO!
+            message="Hola VAGMETAL SPA, me gustaría saber más sobre sus servicios de estructuras metálicas."
           />
         </ThemeProvider>
         <SpeedInsights />
