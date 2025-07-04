@@ -60,7 +60,7 @@ const galleryImagesData = [
     { src: "/images/foto39.jpg", alt: "Rueda neumática de alta resistencia para estructuras móviles" },
     { src: "/images/foto40.jpg", alt: "Soporte metálico reforzado para izaje o apoyo" },
     { src: "/images/foto41.jpg", alt: "Estructura de almacenamiento metálica para botellas de acero" },
-    { src: "/images/foto42.jpeg", alt: "Plataforma de transporte metálica o carro de plataforma" },
+    { src: "/images/foto42.jpg", alt: "Plataforma de transporte metálica o carro de plataforma" },
 ];
 // --- FIN DE DATOS DE GALERÍA ---
 
@@ -127,10 +127,13 @@ export default function TabNavigation() {
                 <h3 className="mb-4 text-2xl font-bold text-gray-900">Nuestra Historia</h3>
                 {/* CAMBIO DE TEXTO: Eliminado "metalurgia" y "venta de herramientas", más general sobre estructuras */}
                 <p className="text-gray-700">
-                  VAGMETAL SPA es una empresa con más de 10 años de experiencia, especializada en el diseño, fabricación y montaje de estructuras metálicas. Ofrecemos soluciones integrales y personalizadas para la industria y construcción, garantizando durabilidad y eficiencia.
+                  VAGMETAL SPA es una empresa con más de 10 años de sólida trayectoria, especializada en el diseño, fabricación y montaje de estructuras metálicas de alta ingeniería. Nos distinguimos por ofrecer soluciones integrales y personalizadas, meticulosamente adaptadas a las exigencias de la industria, la minería y la construcción en Chile. Nuestro enfoque garantiza la máxima durabilidad, resistencia y eficiencia en cada proyecto, cimentado en estrictos estándares de calidad.
                 </p>
                 <p className="mt-4 text-gray-700">
-                  Desde nuestros inicios, nos hemos comprometido con la calidad y la innovación, adaptándonos a las necesidades específicas de cada cliente y proyecto en Chile.
+                  Desde nuestros inicios, hemos cultivado un compromiso inquebrantable con la calidad y la innovación, lo que nos permite abordar desde complejos galpones industriales y naves de almacenamiento hasta soportes especializados y estructuras de alta carga. Cada pieza es concebida y ejecutada considerando su uso específico, los factores ambientales a los que estará expuesta y la optimización de los materiales para un rendimiento superior y una vida útil prolongada.
+                </p>
+                <p className="mt-4 text-gray-700">
+                  Nos enorgullece ser un socio estratégico para nuestros clientes, no solo un proveedor. Aportamos nuestra vasta experiencia para asesorar en la selección de materiales, diseño estructural y técnicas de soldadura avanzadas, asegurando que cada solución metálica no solo cumpla, sino que exceda las expectativas de solidez, seguridad y funcionalidad. Esta dedicación nos ha posicionado como referentes en el sector de las estructuras metálicas a medida en el país.
                 </p>
               </div>
               <div className="overflow-hidden rounded-lg">
