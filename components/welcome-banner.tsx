@@ -1,15 +1,14 @@
 // components/welcome-banner.tsx
 
-"use client" // Esto indica que es un componente de cliente
+"use client"
 
 import { useState, useEffect } from "react"
-import { X, Sparkles } from "lucide-react" // Importar Sparkles para un icono amigable
+import { X, Sparkles } from "lucide-react"
 
 export default function WelcomeBanner() {
   const [isVisible, setIsVisible] = useState(false)
 
   useEffect(() => {
-    // Comprobar si el banner ya ha sido cerrado en esta sesión o anteriormente
     const hasBeenClosed = localStorage.getItem("vagmetal_welcome_banner_closed")
     if (!hasBeenClosed) {
       setIsVisible(true)
@@ -18,14 +17,14 @@ export default function WelcomeBanner() {
 
   const handleClose = () => {
     setIsVisible(false)
-    // Guardar en localStorage que el usuario cerró el banner
     localStorage.setItem("vagmetal_welcome_banner_closed", "true")
   }
 
   if (!isVisible) return null
 
   return (
-    <div className="fixed top-0 left-0 right-0 z-50 bg-blue-700 text-white p-3 shadow-md text-center text-sm md:text-base flex items-center justify-center gap-2">
+    // CAMBIO: z-index ajustado a un valor muy alto para asegurar que esté encima
+    <div className="fixed top-0 left-0 right-0 z-[999] bg-blue-700 text-white p-3 shadow-md text-center text-sm md:text-base flex items-center justify-center gap-2">
       <Sparkles className="h-5 w-5 flex-shrink-0" />
       <span>
         ¡Bienvenido a nuestro nuevo sitio web! Te invitamos a contactarnos. Tenemos **precios especiales para emprendedores, comerciantes y empresas**, adecuados para tu idea.
