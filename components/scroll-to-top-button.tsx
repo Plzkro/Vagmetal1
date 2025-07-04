@@ -1,24 +1,22 @@
 // components/scroll-to-top-button.tsx
 
-"use client" // Esto indica que es un componente de cliente
+"use client"
 
 import { useState, useEffect } from "react"
 import { ArrowUp } from "lucide-react"
-import { Button } from "@/components/ui/button" // Asegúrate de que esta ruta sea correcta
+import { Button } from "@/components/ui/button"
 
 export default function ScrollToTopButton() {
   const [isVisible, setIsVisible] = useState(false)
 
-  // Muestra el botón cuando el usuario ha hecho scroll hacia abajo
   const toggleVisibility = () => {
-    if (window.scrollY > 300) { // Muestra el botón después de 300px de scroll
+    if (window.scrollY > 300) {
       setIsVisible(true)
     } else {
       setIsVisible(false)
     }
   }
 
-  // Desplaza la página al inicio suavemente
   const scrollToTop = () => {
     window.scrollTo({
       top: 0,
@@ -34,7 +32,8 @@ export default function ScrollToTopButton() {
   }, [])
 
   return (
-    <div className="fixed bottom-6 right-6 z-50">
+    // CAMBIO: Posición del botón ajustada para evitar superposición con WhatsApp
+    <div className="fixed bottom-20 right-4 z-50"> {/* Cambiado de bottom-6 right-6 a bottom-20 right-4 */}
       {isVisible && (
         <Button
           onClick={scrollToTop}

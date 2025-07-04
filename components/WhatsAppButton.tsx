@@ -23,7 +23,7 @@ export default function WhatsAppButton({ phoneNumber, message, className }: What
       target="_blank" // Abre en una nueva pestaña
       rel="noopener noreferrer" // Mejora la seguridad
       className={cn(
-        "fixed bottom-6 right-6 z-50 flex items-center justify-center rounded-full bg-green-500 p-3 shadow-lg transition-all duration-300 hover:scale-110 hover:bg-green-600 focus:outline-none focus:ring-4 focus:ring-green-400 focus:ring-opacity-75",
+        "fixed bottom-4 right-4 z-50 flex items-center justify-center rounded-full bg-green-500 p-3 shadow-lg transition-all duration-300 hover:scale-110 hover:bg-green-600 focus:outline-none focus:ring-4 focus:ring-green-400 focus:ring-opacity-75",
         className
       )}
       aria-label="Contactar por WhatsApp"
