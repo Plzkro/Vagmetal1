@@ -1,3 +1,5 @@
+// components/footer.tsx
+
 import Link from "next/link"
 import { Facebook, Instagram, Mail, MapPin, Phone, Linkedin } from "lucide-react"
 
@@ -16,7 +18,10 @@ export default function Footer() {
         <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
           <div>
             <h3 className="mb-4 text-lg font-bold">VAGMETAL SPA</h3>
-            <p className="mb-4 text-gray-400">Trabajando para su éxito con la industria metalúrgica</p>
+            {/* CAMBIO: Descripción de la empresa más precisa */}
+            <p className="mb-4 text-gray-400">
+              Especialistas en fabricación, montaje, arme y desarme de estructuras metálicas a medida para la industria.
+            </p>
             <div className="flex space-x-4">
               {/* Botón de Facebook */}
               <Link href="https://www.facebook.com/profile.php?id=100090390775979" className="text-gray-400 transition-colors hover:text-white" aria-label="Facebook" target="_blank" rel="noopener noreferrer">
@@ -24,12 +29,11 @@ export default function Footer() {
                 <span className="sr-only">Facebook</span>
               </Link>
 
-              {/* Aquí agregamos el botón de Instagram */}
+              {/* Botón de Instagram */}
               <Link href="https://www.instagram.com/vagmetal/" className="text-gray-400 transition-colors hover:text-white" aria-label="Instagram" target="_blank" rel="noopener noreferrer">
                 <Instagram className="h-5 w-5" />
                 <span className="sr-only">Instagram</span>
               </Link>
-
             </div>
           </div>
 
@@ -57,10 +61,13 @@ export default function Footer() {
           <div>
             <h3 className="mb-4 text-lg font-bold">Servicios</h3>
             <ul className="space-y-2">
+              {/* CAMBIO: Lista de servicios actualizada */}
               <li className="text-gray-400">Fabricación de Estructuras Metálicas</li>
-              <li className="text-gray-400">Comercialización de Herramientas</li>
-              <li className="text-gray-400">Fabricación de Carros</li>
-              <li className="text-gray-400">Proyectos Personalizados</li>
+              <li className="text-gray-400">Montaje de Estructuras Metálicas</li>
+              <li className="text-gray-400">Arme y Desarme de Estructuras</li> {/* Nuevo */}
+              <li className="text-gray-400">Proyectos Estructurales a Medida, tales como soportes, carros de carga, y más.</li> {/* Más general */}
+              {/* Eliminado: Comercialización de Herramientas */}
+              {/* Eliminado: Fabricación de Carros (ya cubierto por "Proyectos Estructurales a Medida" si aplica) */}
             </ul>
           </div>
 
