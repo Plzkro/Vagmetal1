@@ -7,7 +7,7 @@ import Link from "next/link" // Importar Link para el botón
 
 export default function Hero() {
   return (
-    <section className="relative h-[80vh] w-full overflow-hidden pt-[96px]" id="inicio"> {/* Añadido id="inicio" */}
+    <section className="relative h-[100vh] w-full overflow-hidden pt-[96px]" id="inicio"> {/* Añadido id="inicio" */}
       {/* CAMBIO DE FOTO: ¡ACTUALIZA ESTO con la ruta de tu nueva imagen principal! */}
       <Image
         src="/images/foto44.jpg" // <--- ¡CAMBIA ESTO por la ruta real de tu nueva imagen!

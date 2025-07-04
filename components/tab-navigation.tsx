@@ -127,7 +127,7 @@ export default function TabNavigation() {
                 <h3 className="mb-4 text-2xl font-bold text-gray-900">Nuestra Historia</h3>
                 {/* CAMBIO DE TEXTO: Eliminado "metalurgia" y "venta de herramientas", más general sobre estructuras */}
                 <p className="text-gray-700">
-                  VAGMETAL SPA es una empresa con más de 10 años de sólida trayectoria, especializada en el diseño, fabricación y montaje de estructuras metálicas de alta ingeniería. Nos distinguimos por ofrecer soluciones integrales y personalizadas, meticulosamente adaptadas a las exigencias de la industria, la minería y la construcción en Chile. Nuestro enfoque garantiza la máxima durabilidad, resistencia y eficiencia en cada proyecto, cimentado en estrictos estándares de calidad.
+                  VAGMETAL SPA es una empresa con más de 10 años de sólida trayectoria, especializada en el diseño, fabricación y montaje de estructuras metálicas. Nos distinguimos por ofrecer soluciones integrales y personalizadas, meticulosamente adaptadas a las exigencias de la industria, la minería y la construcción en Chile. Nuestro enfoque garantiza la máxima durabilidad, resistencia y eficiencia en cada proyecto, cimentado en estrictos estándares de calidad.
                 </p>
                 <p className="mt-4 text-gray-700">
                   Desde nuestros inicios, hemos cultivado un compromiso inquebrantable con la calidad y la innovación, lo que nos permite abordar desde complejos galpones industriales y naves de almacenamiento hasta soportes especializados y estructuras de alta carga. Cada pieza es concebida y ejecutada considerando su uso específico, los factores ambientales a los que estará expuesta y la optimización de los materiales para un rendimiento superior y una vida útil prolongada.
@@ -138,7 +138,7 @@ export default function TabNavigation() {
               </div>
               <div className="overflow-hidden rounded-lg">
                 <Image
-                  src="/images/foto3.jpeg" // Mantengo esta foto ya que no se indicó cambio
+                  src="/images/historia.jpg" // Mantengo esta foto ya que no se indicó cambio
                   alt="Taller de VAGMETAL fabricando estructuras metálicas a medida" // Alt text mejorado
                   width={800}
                   height={600}
