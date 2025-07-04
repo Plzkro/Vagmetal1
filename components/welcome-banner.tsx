@@ -27,7 +27,7 @@ export default function WelcomeBanner() {
     <div className="fixed top-0 left-0 right-0 z-[999] bg-blue-700 text-white p-3 shadow-md text-center text-sm md:text-base flex items-center justify-center gap-2">
       <Sparkles className="h-5 w-5 flex-shrink-0" />
       <span>
-        ¡Bienvenido a nuestro nuevo sitio web! Te invitamos a contactarnos. Tenemos **precios especiales para emprendedores, comerciantes y empresas**, adecuados para tu idea.
+        ¡Bienvenido a nuestro nuevo sitio web! Te invitamos a contactarnos. Tenemos precios especiales para emprendedores, comerciantes y empresas, adecuados para tu idea.
       </span>
       <button
         onClick={handleClose}
