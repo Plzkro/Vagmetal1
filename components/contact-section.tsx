@@ -1,15 +1,43 @@
 // components/contact-section.tsx
+"use client"; // ¡IMPORTANTE! Marca este archivo como un componente de cliente para usar useEffect y el script de HubSpot.
 
+import { useEffect } from 'react'; // Necesitamos useEffect para cargar el script de HubSpot
 import Link from "next/link"; // Necesitamos importar Link para los enlaces
 import { Mail, Phone, MapPin, Clock } from "lucide-react";
 
+// Estos son los IDs proporcionados por tu amigo para el formulario de HubSpot. ¡Asegúrate de que sean exactos!
+const HUB_PORTAL_ID = "50222054";
+const HUB_FORM_ID = "9b98d2b2-3016-40f5-9cde-6b6c8bac028a";
+const HUB_REGION = "na1"; // Regiones comunes: 'na1' para Norteamérica, 'eu1' para Europa, etc. Verifica en tu código de HubSpot.
+
 export default function ContactSection() {
   const phoneNumber = "+56934252069";
-  const emailAddress = "vagmetal.alemany@gmail.com";
-  // Enlace a Google Maps para la dirección exacta
+  const emailAddress = "ventas@vagmetal.cl";
   const mapAddress = "Los Manzanos 2435, La Pintana, Región Metropolitana, Chile";
-  const googleMapsUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(mapAddress)}`;
+  
+  // **CORRECCIÓN AQUÍ**: La forma correcta de construir una URL de búsqueda de Google Maps.
+  // Usamos 'http://maps.google.com/maps?q=' y la interpolación correcta con ${}
+  const googleMapsUrl = `http://maps.google.com/maps?q=${encodeURIComponent(mapAddress)}`;
 
+
+  // Este useEffect se encarga de cargar el script del formulario de HubSpot.
+  useEffect(() => {
+    // Asegúrate de que este código solo se ejecute en el entorno del navegador (lado del cliente)
+    if (typeof window !== 'undefined') {
+      // Verifica si el script principal de HubSpot Forms ya está cargado para evitar duplicados.
+      // Lo buscamos por su ID 'hs-script-loader'.
+      if (!document.getElementById("hs-script-loader")) {
+        const script = document.createElement("script");
+        script.type = "text/javascript";
+        script.id = "hs-script-loader"; // Asigna un ID para verificar fácilmente su presencia
+        script.async = true; // Carga asíncronamente
+        script.defer = true; // Retrasa la ejecución hasta que se analice el HTML
+        // Usa la URL exacta del script proporcionada por HubSpot, que incluye el ID del portal.
+        script.src = `https://js.hsforms.net/forms/embed/${HUB_PORTAL_ID}.js`;
+        document.body.appendChild(script); // Añade el script al cuerpo del documento
+      }
+    }
+  }, []); // El array de dependencias vacío asegura que este efecto se ejecute solo una vez después del renderizado inicial.
 
   return (
     <section className="w-full bg-gray-100 py-16" id="contacto">
@@ -17,13 +45,12 @@ export default function ContactSection() {
         <h2 className="mb-10 text-center text-3xl font-bold text-gray-900 sm:text-4xl">Contáctanos</h2>
 
         <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-3">
-          {/* Información de Contacto */}
+          {/* Sección de Información de Contacto */}
           <div className="rounded-lg bg-white p-6 shadow-md">
             <h3 className="mb-4 text-xl font-semibold text-gray-900">Información de Contacto</h3>
             <div className="space-y-4">
               <div className="flex items-start gap-3">
                 <MapPin className="h-5 w-5 flex-shrink-0 text-blue-700 mt-1" />
-                {/* CAMBIO: Dirección ahora es un enlace a Google Maps */}
                 <Link
                   href={googleMapsUrl}
                   target="_blank"
@@ -36,7 +63,6 @@ export default function ContactSection() {
               </div>
               <div className="flex items-center gap-3">
                 <Phone className="h-5 w-5 flex-shrink-0 text-blue-700" />
-                {/* CAMBIO: Teléfono ahora es un enlace clicable */}
                 <Link
                   href={`tel:${phoneNumber}`}
                   className="text-gray-700 hover:text-blue-700 transition-colors underline"
@@ -47,7 +73,6 @@ export default function ContactSection() {
               </div>
               <div className="flex items-center gap-3">
                 <Mail className="h-5 w-5 flex-shrink-0 text-blue-700" />
-                {/* CAMBIO: Correo ahora es un enlace clicable */}
                 <Link
                   href={`mailto:${emailAddress}`}
                   className="text-gray-700 hover:text-blue-700 transition-colors underline"
@@ -67,50 +92,20 @@ export default function ContactSection() {
             </div>
           </div>
 
-          {/* Formulario de Contacto (mantengo la estructura actual) */}
+          {/* Contenedor del Formulario de Contacto de HubSpot */}
           <div className="lg:col-span-2 rounded-lg bg-white p-6 shadow-md">
             <h3 className="mb-4 text-xl font-semibold text-gray-900">Envíanos un Mensaje</h3>
-            <form className="space-y-4">
-              <div>
-                <label htmlFor="name" className="mb-2 block text-sm font-medium text-gray-700">
-                  Nombre Completo
-                </label>
-                <input
-                  type="text"
-                  id="name"
-                  className="w-full rounded-md border border-gray-300 p-2 focus:border-blue-500 focus:ring-blue-500"
-                  placeholder="Tu nombre"
-                />
-              </div>
-              <div>
-                <label htmlFor="email" className="mb-2 block text-sm font-medium text-gray-700">
-                  Correo Electrónico
-                </label>
-                <input
-                  type="email"
-                  id="email"
-                  className="w-full rounded-md border border-gray-300 p-2 focus:border-blue-500 focus:ring-blue-500"
-                  placeholder="tu.email@ejemplo.com"
-                />
-              </div>
-              <div>
-                <label htmlFor="message" className="mb-2 block text-sm font-medium text-gray-700">
-                  Tu Mensaje
-                </label>
-                <textarea
-                  id="message"
-                  rows={5}
-                  className="w-full rounded-md border border-gray-300 p-2 focus:border-blue-500 focus:ring-blue-500"
-                  placeholder="Escribe tu mensaje aquí..."
-                ></textarea>
-              </div>
-              <button
-                type="submit"
-                className="rounded-md bg-blue-700 px-6 py-2 text-white transition-colors hover:bg-blue-800"
-              >
-                Enviar Mensaje
-              </button>
-            </form>
+            {/* Aquí es donde HubSpot inyectará su formulario. */}
+            {/* El script de HubSpot busca automáticamente un div con la clase 'hs-form-frame' y estos atributos 'data-'. */}
+            <div
+              className="hs-form-frame"
+              data-region={HUB_REGION}
+              data-form-id={HUB_FORM_ID}
+              data-portal-id={HUB_PORTAL_ID}
+            >
+              {/* Este mensaje aparecerá brevemente mientras el formulario de HubSpot se carga. */}
+              <p>Cargando formulario de contacto...</p>
+            </div>
           </div>
         </div>
       </div>

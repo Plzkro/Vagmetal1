@@ -6,7 +6,7 @@ import { Facebook, Instagram, Mail, MapPin, Phone, Linkedin } from "lucide-react
 export default function Footer() {
   const whatsappNumber = "+56934252069" // Tu número de teléfono
   const whatsappMessage = "Hola, me gustaría más información sobre VAGMETAL SPA." // Mensaje predefinido
-  const emailAddress = "vagmetal.alemany@gmail.com" // Tu dirección de correo
+  const emailAddress = "ventas@vagmetal.cl" // Tu dirección de correo
 
   // URL para WhatsApp: phone number should be without '+' or any special chars
   const whatsappHref = `https://wa.me/${whatsappNumber.replace(/\+/g, '')}?text=${encodeURIComponent(whatsappMessage)}`
