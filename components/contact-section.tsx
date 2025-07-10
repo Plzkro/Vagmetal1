@@ -6,9 +6,10 @@ import Link from "next/link"; // Necesitamos importar Link para los enlaces
 import { Mail, Phone, MapPin, Clock } from "lucide-react";
 
 // Estos son los IDs proporcionados por tu amigo para el formulario de HubSpot. ¡Asegúrate de que sean exactos!
-const HUB_PORTAL_ID = "50222054";
-const HUB_FORM_ID = "9b98d2b2-3016-40f5-9cde-6b6c8bac028a";
+const HUB_PORTAL_ID = "50257493"; // <-- ¡CAMBIADO!
+const HUB_FORM_ID = "27d30d44-2eda-4570-977c-3081850c7b0c"; // Este parece seguir igual
 const HUB_REGION = "na1"; // Regiones comunes: 'na1' para Norteamérica, 'eu1' para Europa, etc. Verifica en tu código de HubSpot.
+
 
 export default function ContactSection() {
   const phoneNumber = "+56934252069";
