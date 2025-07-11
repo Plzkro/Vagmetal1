@@ -1,27 +1,26 @@
-// components/tab-navigation.tsx
-
 "use client"
 
 import { useState } from "react"
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
-import { History, Building2, ImageIcon, ChevronLeft, ChevronRight } from "lucide-react"
 import Image from "next/image"
+import { History, Building2, ImageIcon, ChevronLeft, ChevronRight } from "lucide-react"
+
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 
 // --- DATOS DE PROYECTOS ---
 const projectsData = [
   {
-    title: "Proyecto CCU - Estructuras de Carga", // Título ajustado
-    description: "Fabricación y montaje de estructuras de carga personalizadas para bodegas industriales.", // Descripción ajustada
+    title: "Proyecto CCU - Estructuras de Carga",
+    description: "Fabricación y montaje de estructuras de carga personalizadas para bodegas industriales.",
     client: "CCU",
     images: [
-      { src: "/images/foto43.jpg", alt: "Estructura de carga industrial fabricada por VAGMETAL SPA para CCU" }, // <--- ¡ACTUALIZA ESTO con la ruta de tu nueva imagen CCU!
-      { src: "/images/foto12.jpeg", alt: "Detalle de soldadura en estructura metálica" }, // Alt text revisado si aplica
-      { src: "/images/foto13.jpeg", alt: "Proceso de montaje de estructura metálica en sitio" }, // Alt text revisado si aplica
+      { src: "/images/foto43.jpg", alt: "Estructura de carga industrial fabricada por VAGMETAL SPA para CCU" },
+      { src: "/images/foto12.jpeg", alt: "Detalle de soldadura en estructura metálica" },
+      { src: "/images/foto13.jpeg", alt: "Proceso de montaje de estructura metálica en sitio" },
     ],
   },
   {
-    title: "Proyecto Desarme y Montaje de Rack Mezzanina", // Título ajustado
-    description: "Servicios de desarme y posterior montaje de racks mezzanina (altillos) y estructuras de almacenamiento.", // Descripción mejorada
+    title: "Proyecto Desarme y Montaje de Rack Mezzanina",
+    description: "Servicios de desarme y posterior montaje de racks mezzanina (altillos) y estructuras de almacenamiento.",
     client: "Empresa Constructora",
     images: [
       { src: "/images/foto30.jpg", alt: "Rack mezzanina industrial - Vista general" },
@@ -30,8 +29,8 @@ const projectsData = [
     ],
   },
   {
-    title: "Proyecto Monorriel Industrial", // Título ajustado
-    description: "Diseño, fabricación y montaje de sistemas monorriel de hasta 500Kg para transporte de carga en entornos industriales.", // Descripción mejorada y más general
+    title: "Proyecto Monorriel Industrial",
+    description: "Diseño, fabricación y montaje de sistemas monorriel de hasta 500Kg para transporte de carga en entornos industriales.",
     client: "Concha y Toro",
     images: [
       { src: "/images/foto33.jpg", alt: "Monorriel industrial instalado en planta de fabricación" },
@@ -45,32 +44,42 @@ const projectsData = [
 
 // --- DATOS DE GALERÍA CON CATEGORÍAS ---
 const galleryImagesData = [
-    // Carros
-    { src: "/images/foto16.jpeg", alt: "Estructura de transporte robusta para equipos", description: "Estructuras diseñadas para el transporte seguro y eficiente de maquinaria.", category: "Carros" },
-    { src: "/images/foto42.jpg", alt: "Plataforma de transporte metálica o carro de plataforma", description: "Plataformas y carros de plataforma metálicos para transporte de materiales.", category: "Carros" },
-    { src: "/images/foto13.jpeg", alt: "Bastidor metálico para transporte de equipo", description: "Bastidores robustos diseñados para el transporte seguro de equipos pesados.", category: "Carros" }, // Repetida, pero categorizada
+  
+  // Carros
+  { src: "/images/foto42.jpg", alt: "Plataforma de transporte metálica o carro de plataforma", description: "Plataformas y carros de plataforma metálicos para transporte de materiales.", category: "Carros" },
+  { src: "/images/foto13.jpeg", alt: "Carro Yegua CB-350 con Rodillo (Corriente)", description: "Carro Yegua con rodillo CB-350. Estructura de tubo Ø 1 1/4\", base de 56x41 cm. Rodillo de poliamida, eje de acero macizo. Pintura esmalte sintético. Capacidad de carga: 500 kg. Peso: 24.6 kg. Garantía: 1 año. Valor: $108.000 + IVA.", category: "Carros" }, // Added missing comma here
+  { src: "/images/foto12.jpeg", alt: "Carro Tambor CI-250", description: "Carro Tambor CI-250. Estructura de tubo Ø1 1/4\". Base 43x33cm. Rueda de goma maciza Ø10\". Pintura esmalte sintético. Capacidad de carga: 250 kg. Peso: 17 kg. Garantía: 1 año. Valor: $65.000 + IVA.", category: "Carros" },
+  { src: "/images/foto14.jpeg", alt: "Carro Portacilindro", description: "Carro Portacilindro. Estructura de tubo Ø1\"X2mm. Base 30X30 cm. Rueda neumática Ø10. 3 Ruedas marca Tente giratoria con freno. Capacidad de carga: 150 kg (ruedas). Pintura esmalte sintético. Capacidad de carga: 200 kg (carro).", category: "Carros" },
+  { src: "/images/foto17.jpeg", alt: "Carro Yegua CI-200", description: "Carro Yegua CI-200. Estructura de tubo Ø 1\"x1.5mm. Base 33x22 alto 1.30. Rueda de goma maciza Ø8\". Pintura esmalte sintético. Capacidad de carga: 200 kg. Garantía: 1 año. Valor: $50.000 + IVA.", category: "Carros" },
+  { src: "/images/foto37.jpg", alt: "Protección metálica para cilindros de gas industrial", description: "Protectores metálicos a medida para cilindros de gas industriales.", category: "Carros" },
+  { src: "/images/carro4.png", alt: "Carro Yegua CB-350 con Rodillo (Pintura Fluorescente)", description: "Carro Yegua con rodillo CB-350. Estructura de tubo Ø 1 1/4\". Base de 56x... Rodillo de poliamida, eje de acero macizo. Pintura esmalte sintético fluorescente. Tope de seguridad en mano. Capacidad de carga: 500 kg. Peso: 24.6 kg. Garantía: 1 año. Valor: $114.000 + IVA.", category: "Carros" },
+  { src: "/images/carro6.png", alt: "Carro Frutero Simple", description: "Carro Frutero Simple. Estructura de tubo. Base para cilindro. Rueda maciza Ø13\". Pintura esmalte sintético. Capacidad de carga: 200 kg. Garantía: 1 año.", category: "Carros" },
+    
+  // Ruedas
+  { src: "/images/foto39.jpg", alt: "Rueda Neumática Ø15 pulgadas", description: "Rueda neumática de 15 pulgadas (38.5 cm), medidas 4.80/4.00-8. Capacidad de carga: 200 kg c/u. Valor: $10.000 + IVA.", category: "Ruedas" },
+  { src: "/images/rueda1.png", alt: "Rueda Goma Maciza Ø8 pulgadas", description: "Rueda de goma maciza de 8 pulgadas, buje de Ø20mm. Capacidad de carga: 200 kg c/u. Valor: $6.000 + IVA.", category: "Ruedas" },
+  { src: "/images/rueda2.png", alt: "Rueda Aluminio Goma Elástica Ø200X50mm", description: "Rueda de aluminio con goma elástica, medidas Ø200X50mm. Rodamiento 6204. Capacidad de carga: 450 kg c/u. Valor: $15.000 + IVA.", category: "Ruedas" },
+  { src: "/images/rueda3.png", alt: "Rueda Goma Maciza Ø13 pulgadas", description: "Rueda de goma maciza de 13 pulgadas, buje de 20mm. Capacidad de carga: 200 kg c/u. Valor: $10.000 + IVA.", category: "Ruedas" },
+  { src: "/images/rueda5.png", alt: "Rueda Goma Maciza Ø10 pulgadas", description: "Rueda de goma maciza de 10 pulgadas, buje de 20mm. Capacidad de carga: 200 kg c/u. Valor: $8.000 + IVA.", category: "Ruedas" },
+  { src: "/images/rueda6.png", alt: "Rueda Aluminio Goma Elástica Ø250X50mm", description: "Rueda de aluminio con goma elástica, medidas Ø250X50mm. Rodamiento 6204. Capacidad de carga: 450 kg c/u. Valor: $20.000 + IVA.", category: "Ruedas" },
+  { src: "/images/rueda7.png", alt: "Rueda Neumática Ø10 pulgadas", description: "Rueda neumática de 10 pulgadas, medidas 4.10/3.50-4. Rodamiento 6204. Capacidad de carga: 200 kg c/u. Valor: $10.000 + IVA.", category: "Ruedas" },
+  { src: "/images/rueda8.png", alt: "Rueda Giratoria con Freno Tente", description: "Rueda giratoria con freno, 125mm de diámetro, 37mm de ancho. Marca Tente Alemana. Capacidad de carga: 100 kg c/u. Valor: $20.000 + IVA.", category: "Ruedas" },
+  
+  // Otros productos y servicios
+  { src: "/images/foto16.jpeg", alt: "Estructura de transporte robusta para equipos", description: "Estructuras diseñadas para el transporte seguro y eficiente de maquinaria.", category: "Otros productos y servicios" },
+  { src: "/images/foto15.jpeg", alt: "Equipamiento industrial metálico", description: "Fabricación de equipamiento metálico duradero para entornos industriales.", category: "Otros productos y servicios" },
+  { src: "/images/foto18.jpeg", alt: "Mueble o estación de trabajo industrial metálica", description: "Mobiliario y estaciones de trabajo metálicas para ambientes industriales exigentes.", category: "Otros productos y servicios" },
+  { src: "/images/foto22.jpeg", alt: "Escalera móvil metálica de 2 metros", description: "Escaleras metálicas móviles diseñadas para acceso seguro en altura.", category: "Otros productos y servicios" },
+  { src: "/images/foto36.jpg", alt: "Jaula metálica de seguridad para cilindros de gas 45kg", description: "Jaulas de seguridad para el almacenamiento seguro de cilindros de gas.", category: "Otros productos y servicios" },
+  { src: "/images/foto38.jpg", alt: "Diseño y fabricación de diversas estructuras metálicas", description: "Amplia experiencia en el diseño y fabricación de todo tipo de estructuras metálicas.", category: "Otros productos y servicios" },
+  { src: "/images/foto40.jpg", alt: "Soporte metálico reforzado para izaje o apoyo", description: "Soportes metálicos reforzados para operaciones de izaje y apoyo de cargas.", category: "Otros productos y servicios" },
+  { src: "/images/foto41.jpg", alt: "Estructura de almacenamiento metálica para botellas de acero", description: "Soluciones de almacenamiento metálicas para organizar botellas y cilindros de acero.", category: "Otros productos y servicios" },
 
-    // Ruedas
-    { src: "/images/foto39.jpg", alt: "Rueda neumática de alta resistencia para estructuras móviles", description: "Implementación de ruedas neumáticas robustas para estructuras que requieren movilidad.", category: "Ruedas" },
-
-    // Otros productos y servicios (incluye soportes, jaulas, escaleras, equipamiento general)
-    { src: "/images/foto12.jpeg", alt: "Estructura metálica móvil de soporte", description: "Diseño y fabricación de soportes móviles para diversas aplicaciones industriales.", category: "Otros productos y servicios" }, // Repetida, pero categorizada
-    { src: "/images/foto14.jpeg", alt: "Soporte y estructuras metálicas a medida", description: "Soluciones de soporte y estructuras personalizadas para necesidades específicas.", category: "Otros productos y servicios" },
-    { src: "/images/foto15.jpeg", alt: "Equipamiento industrial metálico", description: "Fabricación de equipamiento metálico duradero para entornos industriales.", category: "Otros productos y servicios" },
-    { src: "/images/foto17.jpeg", alt: "Base metálica para maquinaria pesada", description: "Bases metálicas de alta resistencia para maquinaria industrial y equipos pesados.", category: "Otros productos y servicios" },
-    { src: "/images/foto18.jpeg", alt: "Mueble o estación de trabajo industrial metálica", description: "Mobiliario y estaciones de trabajo metálicas para ambientes industriales exigentes.", category: "Otros productos y servicios" },
-    { src: "/images/foto22.jpeg", alt: "Escalera móvil metálica de 2 metros", description: "Escaleras metálicas móviles diseñadas para acceso seguro en altura.", category: "Otros productos y servicios" },
-    { src: "/images/foto36.jpg", alt: "Jaula metálica de seguridad para cilindros de gas 45kg", description: "Jaulas de seguridad para el almacenamiento seguro de cilindros de gas.", category: "Otros productos y servicios" },
-    { src: "/images/foto37.jpg", alt: "Protección metálica para cilindros de gas industrial", description: "Protectores metálicos a medida para cilindros de gas industriales.", category: "Otros productos y servicios" },
-    { src: "/images/foto38.jpg", alt: "Diseño y fabricación de diversas estructuras metálicas", description: "Amplia experiencia en el diseño y fabricación de todo tipo de estructuras metálicas.", category: "Otros productos y servicios" },
-    { src: "/images/foto40.jpg", alt: "Soporte metálico reforzado para izaje o apoyo", description: "Soportes metálicos reforzados para operaciones de izaje y apoyo de cargas.", category: "Otros productos y servicios" },
-    { src: "/images/foto41.jpg", alt: "Estructura de almacenamiento metálica para botellas de acero", description: "Soluciones de almacenamiento metálicas para organizar botellas y cilindros de acero.", category: "Otros productos y servicios" },
 ];
 // --- FIN DE DATOS DE GALERÍA ---
 
-
 export default function TabNavigation() {
-  const [activeTab, setActiveTab] = useState("historia")
+  const [activeTab, setActiveTab] = useState("historia");
   // Nuevo estado para la categoría activa de la galería
   const [activeGalleryCategory, setActiveGalleryCategory] = useState("Todos");
 
@@ -95,7 +104,6 @@ export default function TabNavigation() {
         [projectIndex]: newIndex
       };
     });
-    // ¡Aquí estaba el paréntesis extra! Se ha eliminado
   };
 
   // Función para filtrar las imágenes de la galería según la categoría seleccionada
@@ -109,7 +117,7 @@ export default function TabNavigation() {
         <h2 className="mb-10 text-center text-3xl font-bold text-gray-900 sm:text-4xl">Nuestros Servicios</h2>
 
         <Tabs defaultValue="historia" className="w-full" onValueChange={setActiveTab}>
-          <TabsList className="mx-auto mb-16 sm:mb-0 grid w-full max-w-3xl grid-cols-1 gap-4 sm:grid-cols-3">
+          <TabsList className="mx-auto mb-16 grid w-full max-w-3xl grid-cols-1 gap-4 sm:mb-0 sm:grid-cols-3">
             <TabsTrigger
               value="historia"
               className="flex items-center gap-2 data-[state=active]:bg-blue-700 data-[state=active]:text-white"
@@ -164,7 +172,7 @@ export default function TabNavigation() {
               {/* Mapeamos los datos de nuestros proyectos */}
               {projectsData.map((project, projectIndex) => (
                 <div key={project.title} className="overflow-hidden rounded-lg border border-gray-200 bg-white shadow-sm transition-all duration-300 hover:-translate-y-1">
-                  <div className="relative aspect-w-1 aspect-h-1 group">
+                  <div className="group relative aspect-h-1 aspect-w-1">
                     <Image
                       src={project.images[currentProjectImageIndex[projectIndex] || 0].src}
                       alt={project.images[currentProjectImageIndex[projectIndex] || 0].alt}
@@ -175,14 +183,14 @@ export default function TabNavigation() {
                       <>
                         <button
                           onClick={() => goToPrevImage(projectIndex, project.images.length)}
-                          className="absolute left-0 top-1/2 -translate-y-1/2 px-2 text-black opacity-0 transition-opacity duration-300 group-hover:opacity-100 drop-shadow-md"
+                          className="absolute left-0 top-1/2 -translate-y-1/2 px-2 text-black opacity-0 transition-opacity duration-300 drop-shadow-md group-hover:opacity-100"
                           aria-label="Imagen anterior"
                         >
                           <ChevronLeft className="h-7 w-7" />
                         </button>
                         <button
                           onClick={() => goToNextImage(projectIndex, project.images.length)}
-                          className="absolute right-0 top-1/2 -translate-y-1/2 px-2 text-black opacity-0 transition-opacity duration-300 group-hover:opacity-100 drop-shadow-md"
+                          className="absolute right-0 top-1/2 -translate-y-1/2 px-2 text-black opacity-0 transition-opacity duration-300 drop-shadow-md group-hover:opacity-100"
                           aria-label="Siguiente imagen"
                         >
                           <ChevronRight className="h-7 w-7" />
@@ -220,7 +228,7 @@ export default function TabNavigation() {
 
             <div className="grid gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
               {filteredGalleryImages.map((img, index) => (
-                <div key={index} className="group relative overflow-hidden rounded-lg aspect-w-3 aspect-h-4">
+                <div key={index} className="group relative aspect-h-4 aspect-w-3 overflow-hidden rounded-lg">
                   <Image
                     src={img.src}
                     alt={img.alt}
