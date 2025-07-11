@@ -3,7 +3,7 @@
 import Hero from "@/components/hero"
 import TabNavigation from "@/components/tab-navigation"
 import ContactSection from "@/components/contact-section"
-// import Testimonials from "@/components/testimonials" // Eliminado
+import FAQ from "@/components/faq" // Asegúrate de que esta línea esté activa y no comentada
 
 export default function Home() {
   return (
@@ -11,7 +11,7 @@ export default function Home() {
       <Hero />
       <TabNavigation />
       <ContactSection />
-      {/* <Testimonials /> */} {/* Componente Testimonials eliminado de la renderización */}
+      <FAQ />
     </main>
   )
 }

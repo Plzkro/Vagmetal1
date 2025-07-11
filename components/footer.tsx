@@ -38,25 +38,30 @@ export default function Footer() {
           </div>
 
           <div>
-            <h3 className="mb-4 text-lg font-bold">Enlaces Rápidos</h3>
-            <ul className="space-y-2">
-              <li>
-                <Link href="/" className="text-gray-400 transition-colors hover:text-white">
-                  Inicio
-                </Link>
-              </li>
-              <li>
-                <Link href="#servicios" className="text-gray-400 transition-colors hover:text-white">
-                  Servicios
-                </Link>
-              </li>
-              <li>
-                <Link href="#contacto" className="text-gray-400 transition-colors hover:text-white">
-                  Contacto
-                </Link>
-              </li>
-            </ul>
-          </div>
+  <h3 className="mb-4 text-lg font-bold">Enlaces Rápidos</h3>
+  <ul className="space-y-2">
+    <li>
+      <Link href="/" className="text-gray-400 transition-colors hover:text-white">
+        Inicio
+      </Link>
+    </li>
+    <li>
+      <Link href="#servicios" className="text-gray-400 transition-colors hover:text-white">
+        Servicios
+      </Link>
+    </li>
+    <li> {/* NUEVO: Enlace a FAQ */}
+      <Link href="#faq" className="text-gray-400 transition-colors hover:text-white">
+        FAQ
+      </Link>
+    </li>
+    <li>
+      <Link href="#contacto" className="text-gray-400 transition-colors hover:text-white">
+        Contacto
+      </Link>
+    </li>
+  </ul>
+</div>
 
           <div>
             <h3 className="mb-4 text-lg font-bold">Servicios</h3>

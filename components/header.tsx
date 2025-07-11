@@ -23,7 +23,7 @@ export default function Header() {
           <Image
             src="/images/LogoVagmetal.png"
             alt="Logo VAGMETAL SPA"
-            width={160}
+            width={90}
             height={40}
             priority
           />
@@ -36,6 +36,9 @@ export default function Header() {
           </Link>
           <Link href="#servicios" className="text-sm font-medium text-gray-900 transition-colors hover:text-blue-700"> {/* CAMBIO: Link con href */}
             Servicios
+          </Link>
+          <Link href="#faq" className="text-sm font-medium text-gray-900 transition-colors hover:text-blue-700"> {/* NUEVO: Enlace a FAQ */}
+            FAQ
           </Link>
           <Link href="#contacto" className="text-sm font-medium text-gray-900 transition-colors hover:text-blue-700"> {/* CAMBIO: Link con href */}
             Contacto
@@ -75,6 +78,13 @@ export default function Header() {
               onClick={() => setIsMenuOpen(false)}
             >
               Servicios
+            </Link>
+            <Link // NUEVO: Enlace a FAQ en menú móvil
+              href="#faq"
+              className="text-base font-medium text-gray-900 transition-colors hover:text-blue-700"
+              onClick={() => setIsMenuOpen(false)}
+            >
+              FAQ
             </Link>
             <Link
               href="#contacto"
