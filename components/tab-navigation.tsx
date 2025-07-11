@@ -70,10 +70,10 @@ const galleryImagesData = [
   { src: "/images/foto15.jpeg", alt: "Equipamiento industrial metálico", description: "Fabricación de equipamiento metálico duradero para entornos industriales.", category: "Otros productos y servicios" },
   { src: "/images/foto18.jpeg", alt: "Mueble o estación de trabajo industrial metálica", description: "Mobiliario y estaciones de trabajo metálicas para ambientes industriales exigentes.", category: "Otros productos y servicios" },
   { src: "/images/foto22.jpeg", alt: "Escalera móvil metálica de 2 metros", description: "Escaleras metálicas móviles diseñadas para acceso seguro en altura.", category: "Otros productos y servicios" },
-  { src: "/images/foto36.jpg", alt: "Jaula metálica de seguridad para cilindros de gas 45kg", description: "Jaulas de seguridad para el almacenamiento seguro de cilindros de gas.", category: "Otros productos y servicios" },
+  { src: "/images/foto36.jpg", alt: "Jaula metálica de seguridad para cilindros de gas 45kg", description: "Jaulas de seguridad para el almacenamiento seguro de cilindros de gas.", category: "Carros" },
   { src: "/images/foto38.jpg", alt: "Diseño y fabricación de diversas estructuras metálicas", description: "Amplia experiencia en el diseño y fabricación de todo tipo de estructuras metálicas.", category: "Otros productos y servicios" },
   { src: "/images/foto40.jpg", alt: "Soporte metálico reforzado para izaje o apoyo", description: "Soportes metálicos reforzados para operaciones de izaje y apoyo de cargas.", category: "Otros productos y servicios" },
-  { src: "/images/foto41.jpg", alt: "Estructura de almacenamiento metálica para botellas de acero", description: "Soluciones de almacenamiento metálicas para organizar botellas y cilindros de acero.", category: "Otros productos y servicios" },
+  { src: "/images/foto41.jpg", alt: "Carro de almacenamiento metálico para botellas de acero", description: "Soluciones de almacenamiento y movilizacion metálicas para organizar botellas y cilindros de acero.", category: "Carros" },
 
 ];
 // --- FIN DE DATOS DE GALERÍA ---
