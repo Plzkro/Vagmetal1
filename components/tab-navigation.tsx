@@ -44,23 +44,22 @@ const projectsData = [
 
 
 // --- DATOS DE GALERÍA ---
-// CAMBIO: Alt text y descripciones más generales sobre estructuras metálicas
 const galleryImagesData = [
-    { src: "/images/foto12.jpeg", alt: "Estructura metálica móvil de soporte" },
-    { src: "/images/foto13.jpeg", alt: "Bastidor metálico para transporte de equipo" },
-    { src: "/images/foto14.jpeg", alt: "Soporte y estructuras metálicas a medida" },
-    { src: "/images/foto15.jpeg", alt: "Equipamiento industrial metálico" },
-    { src: "/images/foto16.jpeg", alt: "Estructura de transporte robusta para equipos" },
-    { src: "/images/foto17.jpeg", alt: "Base metálica para maquinaria pesada" },
-    { src: "/images/foto18.jpeg", alt: "Mueble o estación de trabajo industrial metálica" },
-    { src: "/images/foto22.jpeg", alt: "Escalera móvil metálica de 2 metros" },
-    { src: "/images/foto36.jpg", alt: "Jaula metálica de seguridad para cilindros de gas 45kg" },
-    { src: "/images/foto37.jpg", alt: "Protección metálica para cilindros de gas industrial" },
-    { src: "/images/foto38.jpg", alt: "Diseño y fabricación de diversas estructuras metálicas" },
-    { src: "/images/foto39.jpg", alt: "Rueda neumática de alta resistencia para estructuras móviles" },
-    { src: "/images/foto40.jpg", alt: "Soporte metálico reforzado para izaje o apoyo" },
-    { src: "/images/foto41.jpg", alt: "Estructura de almacenamiento metálica para botellas de acero" },
-    { src: "/images/foto42.jpg", alt: "Plataforma de transporte metálica o carro de plataforma" },
+    { src: "/images/foto12.jpeg", alt: "Estructura metálica móvil de soporte", description: "Diseño y fabricación de soportes móviles para diversas aplicaciones industriales." },
+    { src: "/images/foto13.jpeg", alt: "Bastidor metálico para transporte de equipo", description: "Bastidores robustos diseñados para el transporte seguro de equipos pesados." },
+    { src: "/images/foto14.jpeg", alt: "Soporte y estructuras metálicas a medida", description: "Soluciones de soporte y estructuras personalizadas para necesidades específicas." },
+    { src: "/images/foto15.jpeg", alt: "Equipamiento industrial metálico", description: "Fabricación de equipamiento metálico duradero para entornos industriales." },
+    { src: "/images/foto16.jpeg", alt: "Estructura de transporte robusta para equipos", description: "Estructuras diseñadas para el transporte seguro y eficiente de maquinaria." },
+    { src: "/images/foto17.jpeg", alt: "Base metálica para maquinaria pesada", description: "Bases metálicas de alta resistencia para maquinaria industrial y equipos pesados." },
+    { src: "/images/foto18.jpeg", alt: "Mueble o estación de trabajo industrial metálica", description: "Mobiliario y estaciones de trabajo metálicas para ambientes industriales exigentes." },
+    { src: "/images/foto22.jpeg", alt: "Escalera móvil metálica de 2 metros", description: "Escaleras metálicas móviles diseñadas para acceso seguro en altura." },
+    { src: "/images/foto36.jpg", alt: "Jaula metálica de seguridad para cilindros de gas 45kg", description: "Jaulas de seguridad para el almacenamiento seguro de cilindros de gas." },
+    { src: "/images/foto37.jpg", alt: "Protección metálica para cilindros de gas industrial", description: "Protectores metálicos a medida para cilindros de gas industriales." },
+    { src: "/images/foto38.jpg", alt: "Diseño y fabricación de diversas estructuras metálicas", description: "Amplia experiencia en el diseño y fabricación de todo tipo de estructuras metálicas." },
+    { src: "/images/foto39.jpg", alt: "Rueda neumática de alta resistencia para estructuras móviles", description: "Implementación de ruedas neumáticas robustas para estructuras que requieren movilidad." },
+    { src: "/images/foto40.jpg", alt: "Soporte metálico reforzado para izaje o apoyo", description: "Soportes metálicos reforzados para operaciones de izaje y apoyo de cargas." },
+    { src: "/images/foto41.jpg", alt: "Estructura de almacenamiento metálica para botellas de acero", description: "Soluciones de almacenamiento metálicas para organizar botellas y cilindros de acero." },
+    { src: "/images/foto42.jpg", alt: "Plataforma de transporte metálica o carro de plataforma", description: "Plataformas y carros de plataforma metálicos para transporte de materiales." },
 ];
 // --- FIN DE DATOS DE GALERÍA ---
 
@@ -206,7 +205,7 @@ export default function TabNavigation() {
                   <div className="absolute bottom-0 left-0 p-4 text-white opacity-0 transition-opacity duration-300 group-hover:opacity-100">
                     <h4 className="text-lg font-bold">{img.alt}</h4>
                     {/* Texto genérico o eliminar si no aplica */}
-                    <p className="text-sm">Estructura metálica a medida</p>
+                    <p className="text-sm">{img.description}</p>
                   </div>
                 </div>
               ))}
